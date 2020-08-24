@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.example.domainmodel.domainmodel.Annotation;
 import org.example.domainmodel.domainmodel.DataType;
 import org.example.domainmodel.domainmodel.Domainmodel;
 import org.example.domainmodel.domainmodel.DomainmodelFactory;
@@ -60,6 +61,13 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   private EClass featureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass annotationEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -196,7 +204,7 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getEntity_SuperType()
+  public EReference getEntity_Annotations()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(0);
   }
@@ -207,9 +215,20 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getEntity_Features()
+  public EReference getEntity_SuperType()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEntity_Features()
+  {
+    return (EReference)entityEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -262,6 +281,28 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
+  public EClass getAnnotation()
+  {
+    return annotationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAnnotation_Name()
+  {
+    return (EAttribute)annotationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public DomainmodelFactory getDomainmodelFactory()
   {
     return (DomainmodelFactory)getEFactoryInstance();
@@ -296,6 +337,7 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     dataTypeEClass = createEClass(DATA_TYPE);
 
     entityEClass = createEClass(ENTITY);
+    createEReference(entityEClass, ENTITY__ANNOTATIONS);
     createEReference(entityEClass, ENTITY__SUPER_TYPE);
     createEReference(entityEClass, ENTITY__FEATURES);
 
@@ -303,6 +345,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     createEAttribute(featureEClass, FEATURE__MANY);
     createEAttribute(featureEClass, FEATURE__NAME);
     createEReference(featureEClass, FEATURE__TYPE);
+
+    annotationEClass = createEClass(ANNOTATION);
+    createEAttribute(annotationEClass, ANNOTATION__NAME);
   }
 
   /**
@@ -347,6 +392,7 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEntity_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_SuperType(), this.getEntity(), null, "superType", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Features(), this.getFeature(), null, "features", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -354,6 +400,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     initEAttribute(getFeature_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeature_Type(), this.getType(), null, "type", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAnnotation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

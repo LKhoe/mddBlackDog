@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.example.domainmodel.domainmodel.Entity#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.Entity#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.Entity#getFeatures <em>Features</em>}</li>
  * </ul>
@@ -24,6 +25,18 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Entity extends Type
 {
+  /**
+   * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
+   * The list contents are of type {@link org.example.domainmodel.domainmodel.Annotation}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Annotations</em>' containment reference list.
+   * @see org.example.domainmodel.domainmodel.DomainmodelPackage#getEntity_Annotations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Annotation> getAnnotations();
+
   /**
    * Returns the value of the '<em><b>Super Type</b></em>' reference.
    * <!-- begin-user-doc -->

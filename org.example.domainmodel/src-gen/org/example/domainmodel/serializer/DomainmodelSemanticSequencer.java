@@ -14,6 +14,7 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.example.domainmodel.domainmodel.Annotation;
 import org.example.domainmodel.domainmodel.DataType;
 import org.example.domainmodel.domainmodel.Domainmodel;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
@@ -35,6 +36,9 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DomainmodelPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case DomainmodelPackage.ANNOTATION:
+				sequence_Annotation(context, (Annotation) semanticObject); 
+				return; 
 			case DomainmodelPackage.DATA_TYPE:
 				sequence_DataType(context, (DataType) semanticObject); 
 				return; 
@@ -51,6 +55,24 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Annotation returns Annotation
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Annotation(ISerializationContext context, Annotation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.ANNOTATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.ANNOTATION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAnnotationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -89,7 +111,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Entity returns Entity
 	 *
 	 * Constraint:
-	 *     (name=ID superType=[Entity|ID]? features+=Feature*)
+	 *     (annotations+=Annotation* name=ID superType=[Entity|ID]? features+=Feature*)
 	 */
 	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

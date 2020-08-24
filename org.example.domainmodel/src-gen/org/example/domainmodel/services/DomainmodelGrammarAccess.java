@@ -83,63 +83,72 @@ public class DomainmodelGrammarAccess extends AbstractElementFinder.AbstractGram
 	public class EntityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.example.domainmodel.Domainmodel.Entity");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEntityKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSuperTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSuperTypeEntityCrossReference_2_1_0 = (CrossReference)cSuperTypeAssignment_2_1.eContents().get(0);
-		private final RuleCall cSuperTypeEntityIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSuperTypeEntityCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cFeaturesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cFeaturesFeatureParserRuleCall_4_0 = (RuleCall)cFeaturesAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cAnnotationsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cAnnotationsAnnotationParserRuleCall_0_0 = (RuleCall)cAnnotationsAssignment_0.eContents().get(0);
+		private final Keyword cEntityKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cSuperTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cSuperTypeEntityCrossReference_3_1_0 = (CrossReference)cSuperTypeAssignment_3_1.eContents().get(0);
+		private final RuleCall cSuperTypeEntityIDTerminalRuleCall_3_1_0_1 = (RuleCall)cSuperTypeEntityCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cFeaturesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cFeaturesFeatureParserRuleCall_5_0 = (RuleCall)cFeaturesAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Entity:
+		//	annotations+=Annotation*
 		//	'entity' name=ID ('extends' superType=[Entity])? '{'
 		//	features+=Feature*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'entity' name=ID ('extends' superType=[Entity])? '{' features+=Feature* '}'
+		//annotations+=Annotation* 'entity' name=ID ('extends' superType=[Entity])? '{' features+=Feature* '}'
 		public Group getGroup() { return cGroup; }
 		
+		//annotations+=Annotation*
+		public Assignment getAnnotationsAssignment_0() { return cAnnotationsAssignment_0; }
+		
+		//Annotation
+		public RuleCall getAnnotationsAnnotationParserRuleCall_0_0() { return cAnnotationsAnnotationParserRuleCall_0_0; }
+		
 		//'entity'
-		public Keyword getEntityKeyword_0() { return cEntityKeyword_0; }
+		public Keyword getEntityKeyword_1() { return cEntityKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//('extends' superType=[Entity])?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'extends'
-		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
 		
 		//superType=[Entity]
-		public Assignment getSuperTypeAssignment_2_1() { return cSuperTypeAssignment_2_1; }
+		public Assignment getSuperTypeAssignment_3_1() { return cSuperTypeAssignment_3_1; }
 		
 		//[Entity]
-		public CrossReference getSuperTypeEntityCrossReference_2_1_0() { return cSuperTypeEntityCrossReference_2_1_0; }
+		public CrossReference getSuperTypeEntityCrossReference_3_1_0() { return cSuperTypeEntityCrossReference_3_1_0; }
 		
 		//ID
-		public RuleCall getSuperTypeEntityIDTerminalRuleCall_2_1_0_1() { return cSuperTypeEntityIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getSuperTypeEntityIDTerminalRuleCall_3_1_0_1() { return cSuperTypeEntityIDTerminalRuleCall_3_1_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
 		//features+=Feature*
-		public Assignment getFeaturesAssignment_4() { return cFeaturesAssignment_4; }
+		public Assignment getFeaturesAssignment_5() { return cFeaturesAssignment_5; }
 		
 		//Feature
-		public RuleCall getFeaturesFeatureParserRuleCall_4_0() { return cFeaturesFeatureParserRuleCall_4_0; }
+		public RuleCall getFeaturesFeatureParserRuleCall_5_0() { return cFeaturesFeatureParserRuleCall_5_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class FeatureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.example.domainmodel.Domainmodel.Feature");
@@ -184,6 +193,29 @@ public class DomainmodelGrammarAccess extends AbstractElementFinder.AbstractGram
 		//ID
 		public RuleCall getTypeTypeIDTerminalRuleCall_3_0_1() { return cTypeTypeIDTerminalRuleCall_3_0_1; }
 	}
+	public class AnnotationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.example.domainmodel.Domainmodel.Annotation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCommercialAtKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//Annotation:
+		//	'@' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'@' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'@'
+		public Keyword getCommercialAtKeyword_0() { return cCommercialAtKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
 	
 	
 	private final DomainmodelElements pDomainmodel;
@@ -191,6 +223,7 @@ public class DomainmodelGrammarAccess extends AbstractElementFinder.AbstractGram
 	private final DataTypeElements pDataType;
 	private final EntityElements pEntity;
 	private final FeatureElements pFeature;
+	private final AnnotationElements pAnnotation;
 	
 	private final Grammar grammar;
 	
@@ -206,6 +239,7 @@ public class DomainmodelGrammarAccess extends AbstractElementFinder.AbstractGram
 		this.pDataType = new DataTypeElements();
 		this.pEntity = new EntityElements();
 		this.pFeature = new FeatureElements();
+		this.pAnnotation = new AnnotationElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -266,6 +300,7 @@ public class DomainmodelGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Entity:
+	//	annotations+=Annotation*
 	//	'entity' name=ID ('extends' superType=[Entity])? '{'
 	//	features+=Feature*
 	//	'}';
@@ -285,6 +320,16 @@ public class DomainmodelGrammarAccess extends AbstractElementFinder.AbstractGram
 	
 	public ParserRule getFeatureRule() {
 		return getFeatureAccess().getRule();
+	}
+	
+	//Annotation:
+	//	'@' name=ID;
+	public AnnotationElements getAnnotationAccess() {
+		return pAnnotation;
+	}
+	
+	public ParserRule getAnnotationRule() {
+		return getAnnotationAccess().getRule();
 	}
 	
 	//terminal ID:

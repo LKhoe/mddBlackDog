@@ -101,6 +101,11 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
         return createFeatureAdapter();
       }
       @Override
+      public Adapter caseAnnotation(Annotation object)
+      {
+        return createAnnotationAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -193,6 +198,21 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFeatureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Annotation <em>Annotation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.example.domainmodel.domainmodel.Annotation
+   * @generated
+   */
+  public Adapter createAnnotationAdapter()
   {
     return null;
   }

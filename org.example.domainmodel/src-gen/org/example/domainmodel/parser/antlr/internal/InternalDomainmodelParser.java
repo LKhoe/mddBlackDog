@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'datatype'", "'entity'", "'extends'", "'{'", "'}'", "'many'", "':'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'datatype'", "'entity'", "'extends'", "'{'", "'}'", "'many'", "':'", "'@'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
@@ -32,6 +32,7 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int RULE_INT=5;
+    public static final int T__18=18;
     public static final int T__11=11;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
@@ -135,7 +136,7 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=11 && LA1_0<=12)) ) {
+                if ( ((LA1_0>=11 && LA1_0<=12)||LA1_0==18) ) {
                     alt1=1;
                 }
 
@@ -257,7 +258,7 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
             if ( (LA2_0==11) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==12) ) {
+            else if ( (LA2_0==12||LA2_0==18) ) {
                 alt2=2;
             }
             else {
@@ -468,42 +469,93 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEntity"
-    // InternalDomainmodel.g:184:1: ruleEntity returns [EObject current=null] : (otherlv_0= 'entity' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'extends' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= '{' ( (lv_features_5_0= ruleFeature ) )* otherlv_6= '}' ) ;
+    // InternalDomainmodel.g:184:1: ruleEntity returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}' ) ;
     public final EObject ruleEntity() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
+        Token otherlv_1=null;
+        Token lv_name_2_0=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
-        Token otherlv_6=null;
-        EObject lv_features_5_0 = null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        EObject lv_annotations_0_0 = null;
+
+        EObject lv_features_6_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDomainmodel.g:190:2: ( (otherlv_0= 'entity' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'extends' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= '{' ( (lv_features_5_0= ruleFeature ) )* otherlv_6= '}' ) )
-            // InternalDomainmodel.g:191:2: (otherlv_0= 'entity' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'extends' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= '{' ( (lv_features_5_0= ruleFeature ) )* otherlv_6= '}' )
+            // InternalDomainmodel.g:190:2: ( ( ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}' ) )
+            // InternalDomainmodel.g:191:2: ( ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}' )
             {
-            // InternalDomainmodel.g:191:2: (otherlv_0= 'entity' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'extends' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= '{' ( (lv_features_5_0= ruleFeature ) )* otherlv_6= '}' )
-            // InternalDomainmodel.g:192:3: otherlv_0= 'entity' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'extends' ( (otherlv_3= RULE_ID ) ) )? otherlv_4= '{' ( (lv_features_5_0= ruleFeature ) )* otherlv_6= '}'
+            // InternalDomainmodel.g:191:2: ( ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}' )
+            // InternalDomainmodel.g:192:3: ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}'
             {
-            otherlv_0=(Token)match(input,12,FOLLOW_4); 
+            // InternalDomainmodel.g:192:3: ( (lv_annotations_0_0= ruleAnnotation ) )*
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
 
-            			newLeafNode(otherlv_0, grammarAccess.getEntityAccess().getEntityKeyword_0());
+                if ( (LA3_0==18) ) {
+                    alt3=1;
+                }
+
+
+                switch (alt3) {
+            	case 1 :
+            	    // InternalDomainmodel.g:193:4: (lv_annotations_0_0= ruleAnnotation )
+            	    {
+            	    // InternalDomainmodel.g:193:4: (lv_annotations_0_0= ruleAnnotation )
+            	    // InternalDomainmodel.g:194:5: lv_annotations_0_0= ruleAnnotation
+            	    {
+
+            	    					newCompositeNode(grammarAccess.getEntityAccess().getAnnotationsAnnotationParserRuleCall_0_0());
+            	    				
+            	    pushFollow(FOLLOW_5);
+            	    lv_annotations_0_0=ruleAnnotation();
+
+            	    state._fsp--;
+
+
+            	    					if (current==null) {
+            	    						current = createModelElementForParent(grammarAccess.getEntityRule());
+            	    					}
+            	    					add(
+            	    						current,
+            	    						"annotations",
+            	    						lv_annotations_0_0,
+            	    						"org.example.domainmodel.Domainmodel.Annotation");
+            	    					afterParserOrEnumRuleCall();
+            	    				
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop3;
+                }
+            } while (true);
+
+            otherlv_1=(Token)match(input,12,FOLLOW_4); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getEntityAccess().getEntityKeyword_1());
             		
-            // InternalDomainmodel.g:196:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalDomainmodel.g:197:4: (lv_name_1_0= RULE_ID )
+            // InternalDomainmodel.g:215:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalDomainmodel.g:216:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalDomainmodel.g:197:4: (lv_name_1_0= RULE_ID )
-            // InternalDomainmodel.g:198:5: lv_name_1_0= RULE_ID
+            // InternalDomainmodel.g:216:4: (lv_name_2_0= RULE_ID )
+            // InternalDomainmodel.g:217:5: lv_name_2_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_5); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_6); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_name_2_0, grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_2_0());
             				
 
             					if (current==null) {
@@ -512,7 +564,7 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"name",
-            						lv_name_1_0,
+            						lv_name_2_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 
@@ -521,35 +573,35 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDomainmodel.g:214:3: (otherlv_2= 'extends' ( (otherlv_3= RULE_ID ) ) )?
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            // InternalDomainmodel.g:233:3: (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA3_0==13) ) {
-                alt3=1;
+            if ( (LA4_0==13) ) {
+                alt4=1;
             }
-            switch (alt3) {
+            switch (alt4) {
                 case 1 :
-                    // InternalDomainmodel.g:215:4: otherlv_2= 'extends' ( (otherlv_3= RULE_ID ) )
+                    // InternalDomainmodel.g:234:4: otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) )
                     {
-                    otherlv_2=(Token)match(input,13,FOLLOW_4); 
+                    otherlv_3=(Token)match(input,13,FOLLOW_4); 
 
-                    				newLeafNode(otherlv_2, grammarAccess.getEntityAccess().getExtendsKeyword_2_0());
+                    				newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getExtendsKeyword_3_0());
                     			
-                    // InternalDomainmodel.g:219:4: ( (otherlv_3= RULE_ID ) )
-                    // InternalDomainmodel.g:220:5: (otherlv_3= RULE_ID )
+                    // InternalDomainmodel.g:238:4: ( (otherlv_4= RULE_ID ) )
+                    // InternalDomainmodel.g:239:5: (otherlv_4= RULE_ID )
                     {
-                    // InternalDomainmodel.g:220:5: (otherlv_3= RULE_ID )
-                    // InternalDomainmodel.g:221:6: otherlv_3= RULE_ID
+                    // InternalDomainmodel.g:239:5: (otherlv_4= RULE_ID )
+                    // InternalDomainmodel.g:240:6: otherlv_4= RULE_ID
                     {
 
                     						if (current==null) {
                     							current = createModelElement(grammarAccess.getEntityRule());
                     						}
                     					
-                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_6); 
+                    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_7); 
 
-                    						newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getSuperTypeEntityCrossReference_2_1_0());
+                    						newLeafNode(otherlv_4, grammarAccess.getEntityAccess().getSuperTypeEntityCrossReference_3_1_0());
                     					
 
                     }
@@ -563,33 +615,33 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,14,FOLLOW_7); 
+            otherlv_5=(Token)match(input,14,FOLLOW_8); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_3());
+            			newLeafNode(otherlv_5, grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_4());
             		
-            // InternalDomainmodel.g:237:3: ( (lv_features_5_0= ruleFeature ) )*
-            loop4:
+            // InternalDomainmodel.g:256:3: ( (lv_features_6_0= ruleFeature ) )*
+            loop5:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( (LA4_0==RULE_ID||LA4_0==16) ) {
-                    alt4=1;
+                if ( (LA5_0==RULE_ID||LA5_0==16) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt5) {
             	case 1 :
-            	    // InternalDomainmodel.g:238:4: (lv_features_5_0= ruleFeature )
+            	    // InternalDomainmodel.g:257:4: (lv_features_6_0= ruleFeature )
             	    {
-            	    // InternalDomainmodel.g:238:4: (lv_features_5_0= ruleFeature )
-            	    // InternalDomainmodel.g:239:5: lv_features_5_0= ruleFeature
+            	    // InternalDomainmodel.g:257:4: (lv_features_6_0= ruleFeature )
+            	    // InternalDomainmodel.g:258:5: lv_features_6_0= ruleFeature
             	    {
 
-            	    					newCompositeNode(grammarAccess.getEntityAccess().getFeaturesFeatureParserRuleCall_4_0());
+            	    					newCompositeNode(grammarAccess.getEntityAccess().getFeaturesFeatureParserRuleCall_5_0());
             	    				
-            	    pushFollow(FOLLOW_7);
-            	    lv_features_5_0=ruleFeature();
+            	    pushFollow(FOLLOW_8);
+            	    lv_features_6_0=ruleFeature();
 
             	    state._fsp--;
 
@@ -600,7 +652,7 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
             	    					add(
             	    						current,
             	    						"features",
-            	    						lv_features_5_0,
+            	    						lv_features_6_0,
             	    						"org.example.domainmodel.Domainmodel.Feature");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -612,13 +664,13 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop4;
+            	    break loop5;
                 }
             } while (true);
 
-            otherlv_6=(Token)match(input,15,FOLLOW_2); 
+            otherlv_7=(Token)match(input,15,FOLLOW_2); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_5());
+            			newLeafNode(otherlv_7, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_6());
             		
 
             }
@@ -643,7 +695,7 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFeature"
-    // InternalDomainmodel.g:264:1: entryRuleFeature returns [EObject current=null] : iv_ruleFeature= ruleFeature EOF ;
+    // InternalDomainmodel.g:283:1: entryRuleFeature returns [EObject current=null] : iv_ruleFeature= ruleFeature EOF ;
     public final EObject entryRuleFeature() throws RecognitionException {
         EObject current = null;
 
@@ -651,8 +703,8 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDomainmodel.g:264:48: (iv_ruleFeature= ruleFeature EOF )
-            // InternalDomainmodel.g:265:2: iv_ruleFeature= ruleFeature EOF
+            // InternalDomainmodel.g:283:48: (iv_ruleFeature= ruleFeature EOF )
+            // InternalDomainmodel.g:284:2: iv_ruleFeature= ruleFeature EOF
             {
              newCompositeNode(grammarAccess.getFeatureRule()); 
             pushFollow(FOLLOW_1);
@@ -679,7 +731,7 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFeature"
-    // InternalDomainmodel.g:271:1: ruleFeature returns [EObject current=null] : ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) ;
+    // InternalDomainmodel.g:290:1: ruleFeature returns [EObject current=null] : ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) ;
     public final EObject ruleFeature() throws RecognitionException {
         EObject current = null;
 
@@ -692,25 +744,25 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDomainmodel.g:277:2: ( ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) )
-            // InternalDomainmodel.g:278:2: ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )
+            // InternalDomainmodel.g:296:2: ( ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) )
+            // InternalDomainmodel.g:297:2: ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )
             {
-            // InternalDomainmodel.g:278:2: ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )
-            // InternalDomainmodel.g:279:3: ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )
+            // InternalDomainmodel.g:297:2: ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )
+            // InternalDomainmodel.g:298:3: ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )
             {
-            // InternalDomainmodel.g:279:3: ( (lv_many_0_0= 'many' ) )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalDomainmodel.g:298:3: ( (lv_many_0_0= 'many' ) )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==16) ) {
-                alt5=1;
+            if ( (LA6_0==16) ) {
+                alt6=1;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalDomainmodel.g:280:4: (lv_many_0_0= 'many' )
+                    // InternalDomainmodel.g:299:4: (lv_many_0_0= 'many' )
                     {
-                    // InternalDomainmodel.g:280:4: (lv_many_0_0= 'many' )
-                    // InternalDomainmodel.g:281:5: lv_many_0_0= 'many'
+                    // InternalDomainmodel.g:299:4: (lv_many_0_0= 'many' )
+                    // InternalDomainmodel.g:300:5: lv_many_0_0= 'many'
                     {
                     lv_many_0_0=(Token)match(input,16,FOLLOW_4); 
 
@@ -731,13 +783,13 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDomainmodel.g:293:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalDomainmodel.g:294:4: (lv_name_1_0= RULE_ID )
+            // InternalDomainmodel.g:312:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalDomainmodel.g:313:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalDomainmodel.g:294:4: (lv_name_1_0= RULE_ID )
-            // InternalDomainmodel.g:295:5: lv_name_1_0= RULE_ID
+            // InternalDomainmodel.g:313:4: (lv_name_1_0= RULE_ID )
+            // InternalDomainmodel.g:314:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_8); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getFeatureAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -761,11 +813,11 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getFeatureAccess().getColonKeyword_2());
             		
-            // InternalDomainmodel.g:315:3: ( (otherlv_3= RULE_ID ) )
-            // InternalDomainmodel.g:316:4: (otherlv_3= RULE_ID )
+            // InternalDomainmodel.g:334:3: ( (otherlv_3= RULE_ID ) )
+            // InternalDomainmodel.g:335:4: (otherlv_3= RULE_ID )
             {
-            // InternalDomainmodel.g:316:4: (otherlv_3= RULE_ID )
-            // InternalDomainmodel.g:317:5: otherlv_3= RULE_ID
+            // InternalDomainmodel.g:335:4: (otherlv_3= RULE_ID )
+            // InternalDomainmodel.g:336:5: otherlv_3= RULE_ID
             {
 
             					if (current==null) {
@@ -803,6 +855,112 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleFeature"
 
+
+    // $ANTLR start "entryRuleAnnotation"
+    // InternalDomainmodel.g:351:1: entryRuleAnnotation returns [EObject current=null] : iv_ruleAnnotation= ruleAnnotation EOF ;
+    public final EObject entryRuleAnnotation() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAnnotation = null;
+
+
+        try {
+            // InternalDomainmodel.g:351:51: (iv_ruleAnnotation= ruleAnnotation EOF )
+            // InternalDomainmodel.g:352:2: iv_ruleAnnotation= ruleAnnotation EOF
+            {
+             newCompositeNode(grammarAccess.getAnnotationRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleAnnotation=ruleAnnotation();
+
+            state._fsp--;
+
+             current =iv_ruleAnnotation; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAnnotation"
+
+
+    // $ANTLR start "ruleAnnotation"
+    // InternalDomainmodel.g:358:1: ruleAnnotation returns [EObject current=null] : (otherlv_0= '@' ( (lv_name_1_0= RULE_ID ) ) ) ;
+    public final EObject ruleAnnotation() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalDomainmodel.g:364:2: ( (otherlv_0= '@' ( (lv_name_1_0= RULE_ID ) ) ) )
+            // InternalDomainmodel.g:365:2: (otherlv_0= '@' ( (lv_name_1_0= RULE_ID ) ) )
+            {
+            // InternalDomainmodel.g:365:2: (otherlv_0= '@' ( (lv_name_1_0= RULE_ID ) ) )
+            // InternalDomainmodel.g:366:3: otherlv_0= '@' ( (lv_name_1_0= RULE_ID ) )
+            {
+            otherlv_0=(Token)match(input,18,FOLLOW_4); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getAnnotationAccess().getCommercialAtKeyword_0());
+            		
+            // InternalDomainmodel.g:370:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalDomainmodel.g:371:4: (lv_name_1_0= RULE_ID )
+            {
+            // InternalDomainmodel.g:371:4: (lv_name_1_0= RULE_ID )
+            // InternalDomainmodel.g:372:5: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+            					newLeafNode(lv_name_1_0, grammarAccess.getAnnotationAccess().getNameIDTerminalRuleCall_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getAnnotationRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"name",
+            						lv_name_1_0,
+            						"org.eclipse.xtext.common.Terminals.ID");
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAnnotation"
+
     // Delegated rules
 
 
@@ -810,11 +968,12 @@ public class InternalDomainmodelParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001802L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000041802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000018010L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000041000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000006000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000018010L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020000L});
 
 }

@@ -189,15 +189,34 @@ ruleEntity returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='entity'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEntityAccess().getAnnotationsAnnotationParserRuleCall_0_0());
+				}
+				lv_annotations_0_0=ruleAnnotation
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEntityRule());
+					}
+					add(
+						$current,
+						"annotations",
+						lv_annotations_0_0,
+						"org.example.domainmodel.Domainmodel.Annotation");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_1='entity'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getEntityAccess().getEntityKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getEntityAccess().getEntityKeyword_1());
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -206,15 +225,15 @@ ruleEntity returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_2_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
 		(
-			otherlv_2='extends'
+			otherlv_3='extends'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getEntityAccess().getExtendsKeyword_2_0());
+				newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getExtendsKeyword_3_0());
 			}
 			(
 				(
@@ -223,23 +242,23 @@ ruleEntity returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getEntityRule());
 						}
 					}
-					otherlv_3=RULE_ID
+					otherlv_4=RULE_ID
 					{
-						newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getSuperTypeEntityCrossReference_2_1_0());
+						newLeafNode(otherlv_4, grammarAccess.getEntityAccess().getSuperTypeEntityCrossReference_3_1_0());
 					}
 				)
 			)
 		)?
-		otherlv_4='{'
+		otherlv_5='{'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_5, grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEntityAccess().getFeaturesFeatureParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getEntityAccess().getFeaturesFeatureParserRuleCall_5_0());
 				}
-				lv_features_5_0=ruleFeature
+				lv_features_6_0=ruleFeature
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEntityRule());
@@ -247,15 +266,15 @@ ruleEntity returns [EObject current=null]
 					add(
 						$current,
 						"features",
-						lv_features_5_0,
+						lv_features_6_0,
 						"org.example.domainmodel.Domainmodel.Feature");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_6='}'
+		otherlv_7='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_7, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;
@@ -322,6 +341,47 @@ ruleFeature returns [EObject current=null]
 				otherlv_3=RULE_ID
 				{
 					newLeafNode(otherlv_3, grammarAccess.getFeatureAccess().getTypeTypeCrossReference_3_0());
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleAnnotation
+entryRuleAnnotation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAnnotationRule()); }
+	iv_ruleAnnotation=ruleAnnotation
+	{ $current=$iv_ruleAnnotation.current; }
+	EOF;
+
+// Rule Annotation
+ruleAnnotation returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='@'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAnnotationAccess().getCommercialAtKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getAnnotationAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAnnotationRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.example.domainmodel.domainmodel.Annotation;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
 import org.example.domainmodel.domainmodel.Entity;
 import org.example.domainmodel.domainmodel.Feature;
@@ -30,6 +31,7 @@ import org.example.domainmodel.domainmodel.Feature;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.EntityImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.EntityImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.EntityImpl#getFeatures <em>Features</em>}</li>
  * </ul>
@@ -38,6 +40,16 @@ import org.example.domainmodel.domainmodel.Feature;
  */
 public class EntityImpl extends TypeImpl implements Entity
 {
+  /**
+   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnnotations()
+   * @generated
+   * @ordered
+   */
+  protected EList<Annotation> annotations;
+
   /**
    * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
    * <!-- begin-user-doc -->
@@ -77,6 +89,21 @@ public class EntityImpl extends TypeImpl implements Entity
   protected EClass eStaticClass()
   {
     return DomainmodelPackage.Literals.ENTITY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Annotation> getAnnotations()
+  {
+    if (annotations == null)
+    {
+      annotations = new EObjectContainmentEList<Annotation>(Annotation.class, this, DomainmodelPackage.ENTITY__ANNOTATIONS);
+    }
+    return annotations;
   }
 
   /**
@@ -149,6 +176,8 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case DomainmodelPackage.ENTITY__ANNOTATIONS:
+        return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
       case DomainmodelPackage.ENTITY__FEATURES:
         return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
     }
@@ -165,6 +194,8 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case DomainmodelPackage.ENTITY__ANNOTATIONS:
+        return getAnnotations();
       case DomainmodelPackage.ENTITY__SUPER_TYPE:
         if (resolve) return getSuperType();
         return basicGetSuperType();
@@ -185,6 +216,10 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case DomainmodelPackage.ENTITY__ANNOTATIONS:
+        getAnnotations().clear();
+        getAnnotations().addAll((Collection<? extends Annotation>)newValue);
+        return;
       case DomainmodelPackage.ENTITY__SUPER_TYPE:
         setSuperType((Entity)newValue);
         return;
@@ -206,6 +241,9 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case DomainmodelPackage.ENTITY__ANNOTATIONS:
+        getAnnotations().clear();
+        return;
       case DomainmodelPackage.ENTITY__SUPER_TYPE:
         setSuperType((Entity)null);
         return;
@@ -226,6 +264,8 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case DomainmodelPackage.ENTITY__ANNOTATIONS:
+        return annotations != null && !annotations.isEmpty();
       case DomainmodelPackage.ENTITY__SUPER_TYPE:
         return superType != null;
       case DomainmodelPackage.ENTITY__FEATURES:

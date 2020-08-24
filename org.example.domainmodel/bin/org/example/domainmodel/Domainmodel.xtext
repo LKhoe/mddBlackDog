@@ -22,7 +22,6 @@ Feature:
     (many?='many')? name=ID ':' type=[Type];
 
 Annotation:
-    '@' name=ID
-
-AnnotationType:
-    NoView | 
+    '@' name=ID;
+    
+    

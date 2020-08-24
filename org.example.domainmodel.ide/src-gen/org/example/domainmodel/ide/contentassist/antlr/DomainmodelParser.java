@@ -34,16 +34,19 @@ public class DomainmodelParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 			builder.put(grammarAccess.getDataTypeAccess().getGroup(), "rule__DataType__Group__0");
 			builder.put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
-			builder.put(grammarAccess.getEntityAccess().getGroup_2(), "rule__Entity__Group_2__0");
+			builder.put(grammarAccess.getEntityAccess().getGroup_3(), "rule__Entity__Group_3__0");
 			builder.put(grammarAccess.getFeatureAccess().getGroup(), "rule__Feature__Group__0");
+			builder.put(grammarAccess.getAnnotationAccess().getGroup(), "rule__Annotation__Group__0");
 			builder.put(grammarAccess.getDomainmodelAccess().getElementsAssignment(), "rule__Domainmodel__ElementsAssignment");
 			builder.put(grammarAccess.getDataTypeAccess().getNameAssignment_1(), "rule__DataType__NameAssignment_1");
-			builder.put(grammarAccess.getEntityAccess().getNameAssignment_1(), "rule__Entity__NameAssignment_1");
-			builder.put(grammarAccess.getEntityAccess().getSuperTypeAssignment_2_1(), "rule__Entity__SuperTypeAssignment_2_1");
-			builder.put(grammarAccess.getEntityAccess().getFeaturesAssignment_4(), "rule__Entity__FeaturesAssignment_4");
+			builder.put(grammarAccess.getEntityAccess().getAnnotationsAssignment_0(), "rule__Entity__AnnotationsAssignment_0");
+			builder.put(grammarAccess.getEntityAccess().getNameAssignment_2(), "rule__Entity__NameAssignment_2");
+			builder.put(grammarAccess.getEntityAccess().getSuperTypeAssignment_3_1(), "rule__Entity__SuperTypeAssignment_3_1");
+			builder.put(grammarAccess.getEntityAccess().getFeaturesAssignment_5(), "rule__Entity__FeaturesAssignment_5");
 			builder.put(grammarAccess.getFeatureAccess().getManyAssignment_0(), "rule__Feature__ManyAssignment_0");
 			builder.put(grammarAccess.getFeatureAccess().getNameAssignment_1(), "rule__Feature__NameAssignment_1");
 			builder.put(grammarAccess.getFeatureAccess().getTypeAssignment_3(), "rule__Feature__TypeAssignment_3");
+			builder.put(grammarAccess.getAnnotationAccess().getNameAssignment_1(), "rule__Annotation__NameAssignment_1");
 		}
 	}
 	

@@ -161,13 +161,22 @@ public interface DomainmodelPackage extends EPackage
   int ENTITY__NAME = TYPE__NAME;
 
   /**
+   * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__ANNOTATIONS = TYPE_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Super Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY__SUPER_TYPE = TYPE_FEATURE_COUNT + 0;
+  int ENTITY__SUPER_TYPE = TYPE_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -176,7 +185,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY__FEATURES = TYPE_FEATURE_COUNT + 1;
+  int ENTITY__FEATURES = TYPE_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Entity</em>' class.
@@ -185,7 +194,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY_FEATURE_COUNT = TYPE_FEATURE_COUNT + 2;
+  int ENTITY_FEATURE_COUNT = TYPE_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.FeatureImpl <em>Feature</em>}' class.
@@ -232,6 +241,34 @@ public interface DomainmodelPackage extends EPackage
    * @ordered
    */
   int FEATURE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.AnnotationImpl <em>Annotation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.example.domainmodel.domainmodel.impl.AnnotationImpl
+   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getAnnotation()
+   * @generated
+   */
+  int ANNOTATION = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANNOTATION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Annotation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANNOTATION_FEATURE_COUNT = 1;
 
 
   /**
@@ -297,6 +334,17 @@ public interface DomainmodelPackage extends EPackage
   EClass getEntity();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.Entity#getAnnotations <em>Annotations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Annotations</em>'.
+   * @see org.example.domainmodel.domainmodel.Entity#getAnnotations()
+   * @see #getEntity()
+   * @generated
+   */
+  EReference getEntity_Annotations();
+
+  /**
    * Returns the meta object for the reference '{@link org.example.domainmodel.domainmodel.Entity#getSuperType <em>Super Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -360,6 +408,27 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    */
   EReference getFeature_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Annotation <em>Annotation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Annotation</em>'.
+   * @see org.example.domainmodel.domainmodel.Annotation
+   * @generated
+   */
+  EClass getAnnotation();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Annotation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.example.domainmodel.domainmodel.Annotation#getName()
+   * @see #getAnnotation()
+   * @generated
+   */
+  EAttribute getAnnotation_Name();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -441,6 +510,14 @@ public interface DomainmodelPackage extends EPackage
     EClass ENTITY = eINSTANCE.getEntity();
 
     /**
+     * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY__ANNOTATIONS = eINSTANCE.getEntity_Annotations();
+
+    /**
      * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -489,6 +566,24 @@ public interface DomainmodelPackage extends EPackage
      * @generated
      */
     EReference FEATURE__TYPE = eINSTANCE.getFeature_Type();
+
+    /**
+     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.AnnotationImpl <em>Annotation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.example.domainmodel.domainmodel.impl.AnnotationImpl
+     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getAnnotation()
+     * @generated
+     */
+    EClass ANNOTATION = eINSTANCE.getAnnotation();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ANNOTATION__NAME = eINSTANCE.getAnnotation_Name();
 
   }
 
