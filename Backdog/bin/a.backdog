@@ -1,0 +1,30 @@
+datatype String
+
+entity Organization {
+    name: String
+    cnpj: String
+}
+
+entity Project {
+    name: String
+    org: Organization
+}
+
+entity Team {
+    name: String
+}
+
+entity ProjectTeam extends Team {
+    project: Project
+}
+
+entity Person {
+    name: String
+    cpf: String
+}
+
+entity TeamMember extends Person {
+    team: Team
+}
+
+
