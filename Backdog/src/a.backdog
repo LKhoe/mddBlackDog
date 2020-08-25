@@ -10,6 +10,7 @@ entity Project {
     org: Organization
 }
 
+@None
 entity Team {
     name: String
 }
@@ -18,6 +19,7 @@ entity ProjectTeam extends Team {
     project: Project
 }
 
+@None
 entity Person {
     name: String
     cpf: String
@@ -26,6 +28,3 @@ entity Person {
 entity TeamMember extends Person {
     team: Team
 }
-
-
-

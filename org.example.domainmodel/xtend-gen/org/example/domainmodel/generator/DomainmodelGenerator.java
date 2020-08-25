@@ -17,6 +17,7 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.example.domainmodel.domainmodel.Annotation;
 import org.example.domainmodel.domainmodel.Entity;
 import org.example.domainmodel.domainmodel.Feature;
 
@@ -37,7 +38,8 @@ public class DomainmodelGenerator extends AbstractGenerator {
     fsa.generateFile("core/views.py", this.createView(resource));
     Iterable<Entity> _filter = Iterables.<Entity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Entity.class);
     for (final Entity e : _filter) {
-      {
+      boolean _isEmpty = e.getAnnotations().isEmpty();
+      if (_isEmpty) {
         String _lowerCase = e.getName().toLowerCase();
         String _plus = ("core/templates/core/" + _lowerCase);
         String _plus_1 = (_plus + "_form.html");
@@ -48,8 +50,46 @@ public class DomainmodelGenerator extends AbstractGenerator {
         fsa.generateFile(_plus_3, this.listHtml(e));
         String _lowerCase_2 = e.getName().toLowerCase();
         String _plus_4 = ("core/templates/core/" + _lowerCase_2);
-        String _plus_5 = (_plus_4 + "_confirm_delte.html");
+        String _plus_5 = (_plus_4 + "_confirm_delete.html");
         fsa.generateFile(_plus_5, this.confirmDeleteHtml(e));
+      } else {
+        EList<Annotation> _annotations = e.getAnnotations();
+        for (final Annotation a : _annotations) {
+          {
+            String _name = a.getName();
+            boolean _equals = Objects.equal(_name, "Create");
+            if (_equals) {
+              String _lowerCase_3 = e.getName().toLowerCase();
+              String _plus_6 = ("core/templates/core/" + _lowerCase_3);
+              String _plus_7 = (_plus_6 + "_form.html");
+              fsa.generateFile(_plus_7, this.formHtml(e));
+            }
+            String _name_1 = a.getName();
+            boolean _equals_1 = Objects.equal(_name_1, "List");
+            if (_equals_1) {
+              String _lowerCase_4 = e.getName().toLowerCase();
+              String _plus_8 = ("core/templates/core/" + _lowerCase_4);
+              String _plus_9 = (_plus_8 + "_list.html");
+              fsa.generateFile(_plus_9, this.listHtml(e));
+            }
+            String _name_2 = a.getName();
+            boolean _equals_2 = Objects.equal(_name_2, "Update");
+            if (_equals_2) {
+              String _lowerCase_5 = e.getName().toLowerCase();
+              String _plus_10 = ("core/templates/core/" + _lowerCase_5);
+              String _plus_11 = (_plus_10 + "_form.html");
+              fsa.generateFile(_plus_11, this.formHtml(e));
+            }
+            String _name_3 = a.getName();
+            boolean _equals_3 = Objects.equal(_name_3, "Delete");
+            if (_equals_3) {
+              String _lowerCase_6 = e.getName().toLowerCase();
+              String _plus_12 = ("core/templates/core/" + _lowerCase_6);
+              String _plus_13 = (_plus_12 + "_confirm_delete.html");
+              fsa.generateFile(_plus_13, this.confirmDeleteHtml(e));
+            }
+          }
+        }
       }
     }
     fsa.generateFile("core/urls.py", this.createUrl(resource));
@@ -297,20 +337,62 @@ public class DomainmodelGenerator extends AbstractGenerator {
     {
       Iterable<Entity> _filter_1 = Iterables.<Entity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Entity.class);
       for(final Entity e_1 : _filter_1) {
-        _builder.append("#");
-        String _name = e_1.getName();
-        _builder.append(_name);
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t\t");
-        CharSequence _createView = this.createView(e_1);
-        _builder.append(_createView, "\t\t\t");
-        CharSequence _listView = this.listView(e_1);
-        _builder.append(_listView, "\t\t\t");
-        CharSequence _updateView = this.updateView(e_1);
-        _builder.append(_updateView, "\t\t\t");
-        CharSequence _deleteView = this.deleteView(e_1);
-        _builder.append(_deleteView, "\t\t\t");
-        _builder.newLineIfNotEmpty();
+        {
+          boolean _isEmpty = e_1.getAnnotations().isEmpty();
+          if (_isEmpty) {
+            CharSequence _createView = this.createView(e_1);
+            _builder.append(_createView);
+            CharSequence _listView = this.listView(e_1);
+            _builder.append(_listView);
+            CharSequence _updateView = this.updateView(e_1);
+            _builder.append(_updateView);
+            CharSequence _deleteView = this.deleteView(e_1);
+            _builder.append(_deleteView);
+            _builder.newLineIfNotEmpty();
+          } else {
+            {
+              EList<Annotation> _annotations = e_1.getAnnotations();
+              for(final Annotation a : _annotations) {
+                {
+                  String _name = a.getName();
+                  boolean _equals = Objects.equal(_name, "Create");
+                  if (_equals) {
+                    CharSequence _createView_1 = this.createView(e_1);
+                    _builder.append(_createView_1);
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+                {
+                  String _name_1 = a.getName();
+                  boolean _equals_1 = Objects.equal(_name_1, "List");
+                  if (_equals_1) {
+                    CharSequence _listView_1 = this.listView(e_1);
+                    _builder.append(_listView_1);
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+                {
+                  String _name_2 = a.getName();
+                  boolean _equals_2 = Objects.equal(_name_2, "Update");
+                  if (_equals_2) {
+                    CharSequence _updateView_1 = this.updateView(e_1);
+                    _builder.append(_updateView_1);
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+                {
+                  String _name_3 = a.getName();
+                  boolean _equals_3 = Objects.equal(_name_3, "Delete");
+                  if (_equals_3) {
+                    CharSequence _deleteView_1 = this.deleteView(e_1);
+                    _builder.append(_deleteView_1);
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
     return _builder;
@@ -518,70 +600,198 @@ public class DomainmodelGenerator extends AbstractGenerator {
   
   private CharSequence importViews(final Entity e) {
     StringConcatenation _builder = new StringConcatenation();
-    String _name = e.getName();
-    _builder.append(_name);
-    _builder.append("List, ");
-    String _name_1 = e.getName();
-    _builder.append(_name_1);
-    _builder.append("Create, ");
-    String _name_2 = e.getName();
-    _builder.append(_name_2);
-    _builder.append("Update, ");
-    String _name_3 = e.getName();
-    _builder.append(_name_3);
-    _builder.append("Delete,");
-    _builder.newLineIfNotEmpty();
+    {
+      boolean _isEmpty = e.getAnnotations().isEmpty();
+      if (_isEmpty) {
+        String _name = e.getName();
+        _builder.append(_name);
+        _builder.append("List, ");
+        String _name_1 = e.getName();
+        _builder.append(_name_1);
+        _builder.append("Create, ");
+        String _name_2 = e.getName();
+        _builder.append(_name_2);
+        _builder.append("Update, ");
+        String _name_3 = e.getName();
+        _builder.append(_name_3);
+        _builder.append("Delete,");
+        _builder.newLineIfNotEmpty();
+      } else {
+        {
+          EList<Annotation> _annotations = e.getAnnotations();
+          for(final Annotation a : _annotations) {
+            {
+              String _name_4 = a.getName();
+              boolean _equals = Objects.equal(_name_4, "Create");
+              if (_equals) {
+                String _name_5 = e.getName();
+                _builder.append(_name_5);
+                _builder.append("Create, ");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              String _name_6 = a.getName();
+              boolean _equals_1 = Objects.equal(_name_6, "List");
+              if (_equals_1) {
+                String _name_7 = e.getName();
+                _builder.append(_name_7);
+                _builder.append("List, ");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              String _name_8 = a.getName();
+              boolean _equals_2 = Objects.equal(_name_8, "Update");
+              if (_equals_2) {
+                String _name_9 = e.getName();
+                _builder.append(_name_9);
+                _builder.append("Update, ");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              String _name_10 = a.getName();
+              boolean _equals_3 = Objects.equal(_name_10, "Delete");
+              if (_equals_3) {
+                String _name_11 = e.getName();
+                _builder.append(_name_11);
+                _builder.append("Delete, ");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
     return _builder;
   }
   
   private CharSequence path(final Entity e) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("path(\'");
-    String _lowerCase = e.getName().toLowerCase();
-    _builder.append(_lowerCase);
-    _builder.append("/\', ");
-    String _name = e.getName();
-    _builder.append(_name);
-    _builder.append("List.as_view(), name=\'");
-    String _lowerCase_1 = e.getName().toLowerCase();
-    _builder.append(_lowerCase_1);
-    _builder.append("_list\'),");
-    _builder.newLineIfNotEmpty();
-    _builder.append("path(\'");
-    String _lowerCase_2 = e.getName().toLowerCase();
-    _builder.append(_lowerCase_2);
-    _builder.append("/add/\', ");
-    String _name_1 = e.getName();
-    _builder.append(_name_1);
-    _builder.append("Create.as_view(), name=\'");
-    String _lowerCase_3 = e.getName().toLowerCase();
-    _builder.append(_lowerCase_3);
-    _builder.append("_add\'),");
-    _builder.newLineIfNotEmpty();
-    _builder.append("path(\'");
-    String _lowerCase_4 = e.getName().toLowerCase();
-    _builder.append(_lowerCase_4);
-    _builder.append("/<int:pk>/update/\', ");
-    String _name_2 = e.getName();
-    _builder.append(_name_2);
-    _builder.append("Update.as_view(), name=\'");
-    String _lowerCase_5 = e.getName().toLowerCase();
-    _builder.append(_lowerCase_5);
-    _builder.append("_update\'),");
-    _builder.newLineIfNotEmpty();
-    _builder.append("path(\'");
-    String _lowerCase_6 = e.getName().toLowerCase();
-    _builder.append(_lowerCase_6);
-    _builder.append("/<int:pk>/delete/\', ");
-    String _name_3 = e.getName();
-    _builder.append(_name_3);
-    _builder.append("Delete.as_view(), name=\'");
-    String _lowerCase_7 = e.getName().toLowerCase();
-    _builder.append(_lowerCase_7);
-    _builder.append("_delete\'),");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.newLine();
+    {
+      boolean _isEmpty = e.getAnnotations().isEmpty();
+      if (_isEmpty) {
+        _builder.append("path(\'");
+        String _lowerCase = e.getName().toLowerCase();
+        _builder.append(_lowerCase);
+        _builder.append("/\', ");
+        String _name = e.getName();
+        _builder.append(_name);
+        _builder.append("List.as_view(), name=\'");
+        String _lowerCase_1 = e.getName().toLowerCase();
+        _builder.append(_lowerCase_1);
+        _builder.append("_list\'),");
+        _builder.newLineIfNotEmpty();
+        _builder.append("path(\'");
+        String _lowerCase_2 = e.getName().toLowerCase();
+        _builder.append(_lowerCase_2);
+        _builder.append("/add/\', ");
+        String _name_1 = e.getName();
+        _builder.append(_name_1);
+        _builder.append("Create.as_view(), name=\'");
+        String _lowerCase_3 = e.getName().toLowerCase();
+        _builder.append(_lowerCase_3);
+        _builder.append("_add\'),");
+        _builder.newLineIfNotEmpty();
+        _builder.append("path(\'");
+        String _lowerCase_4 = e.getName().toLowerCase();
+        _builder.append(_lowerCase_4);
+        _builder.append("/<int:pk>/update/\', ");
+        String _name_2 = e.getName();
+        _builder.append(_name_2);
+        _builder.append("Update.as_view(), name=\'");
+        String _lowerCase_5 = e.getName().toLowerCase();
+        _builder.append(_lowerCase_5);
+        _builder.append("_update\'),");
+        _builder.newLineIfNotEmpty();
+        _builder.append("path(\'");
+        String _lowerCase_6 = e.getName().toLowerCase();
+        _builder.append(_lowerCase_6);
+        _builder.append("/<int:pk>/delete/\', ");
+        String _name_3 = e.getName();
+        _builder.append(_name_3);
+        _builder.append("Delete.as_view(), name=\'");
+        String _lowerCase_7 = e.getName().toLowerCase();
+        _builder.append(_lowerCase_7);
+        _builder.append("_delete\'),");
+        _builder.newLineIfNotEmpty();
+      } else {
+        {
+          EList<Annotation> _annotations = e.getAnnotations();
+          for(final Annotation a : _annotations) {
+            {
+              String _name_4 = a.getName();
+              boolean _equals = Objects.equal(_name_4, "Create");
+              if (_equals) {
+                _builder.append("path(\'");
+                String _lowerCase_8 = e.getName().toLowerCase();
+                _builder.append(_lowerCase_8);
+                _builder.append("/add/\', ");
+                String _name_5 = e.getName();
+                _builder.append(_name_5);
+                _builder.append("Create.as_view(), name=\'");
+                String _lowerCase_9 = e.getName().toLowerCase();
+                _builder.append(_lowerCase_9);
+                _builder.append("_add\'),");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              String _name_6 = a.getName();
+              boolean _equals_1 = Objects.equal(_name_6, "List");
+              if (_equals_1) {
+                _builder.append("path(\'");
+                String _lowerCase_10 = e.getName().toLowerCase();
+                _builder.append(_lowerCase_10);
+                _builder.append("/\', ");
+                String _name_7 = e.getName();
+                _builder.append(_name_7);
+                _builder.append("List.as_view(), name=\'");
+                String _lowerCase_11 = e.getName().toLowerCase();
+                _builder.append(_lowerCase_11);
+                _builder.append("_list\'),");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              String _name_8 = a.getName();
+              boolean _equals_2 = Objects.equal(_name_8, "Update");
+              if (_equals_2) {
+                _builder.append("path(\'");
+                String _lowerCase_12 = e.getName().toLowerCase();
+                _builder.append(_lowerCase_12);
+                _builder.append("/<int:pk>/update/\', ");
+                String _name_9 = e.getName();
+                _builder.append(_name_9);
+                _builder.append("Update.as_view(), name=\'");
+                String _lowerCase_13 = e.getName().toLowerCase();
+                _builder.append(_lowerCase_13);
+                _builder.append("_update\'),");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              String _name_10 = a.getName();
+              boolean _equals_3 = Objects.equal(_name_10, "Delete");
+              if (_equals_3) {
+                _builder.append("path(\'");
+                String _lowerCase_14 = e.getName().toLowerCase();
+                _builder.append(_lowerCase_14);
+                _builder.append("/<int:pk>/delete/\', ");
+                String _name_11 = e.getName();
+                _builder.append(_name_11);
+                _builder.append("Delete.as_view(), name=\'");
+                String _lowerCase_15 = e.getName().toLowerCase();
+                _builder.append(_lowerCase_15);
+                _builder.append("_delete\'),");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
     return _builder;
   }
   

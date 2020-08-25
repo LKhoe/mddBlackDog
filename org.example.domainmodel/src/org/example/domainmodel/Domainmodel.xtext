@@ -22,6 +22,9 @@ Feature:
     (many?='many')? name=ID ':' type=[Type];
 
 Annotation:
-    '@' name=ID;
+    '@' name=Views;
     
-    
+Views:
+    'None' | 'Create' | 'List' | 'Update' | 'Delete';
+
+
