@@ -142,6 +142,34 @@ public interface BlackDogPackage extends EPackage
   int DATA_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.DescriptionImpl <em>Description</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.DescriptionImpl
+   * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.BlackDogPackageImpl#getDescription()
+   * @generated
+   */
+  int DESCRIPTION = 3;
+
+  /**
+   * The feature id for the '<em><b>Textfield</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DESCRIPTION__TEXTFIELD = 0;
+
+  /**
+   * The number of structural features of the '<em>Description</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DESCRIPTION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.EntityImpl <em>Entity</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -149,7 +177,7 @@ public interface BlackDogPackage extends EPackage
    * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.BlackDogPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 3;
+  int ENTITY = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -161,13 +189,22 @@ public interface BlackDogPackage extends EPackage
   int ENTITY__NAME = TYPE__NAME;
 
   /**
+   * The feature id for the '<em><b>Description</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__DESCRIPTION = TYPE_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY__ANNOTATIONS = TYPE_FEATURE_COUNT + 0;
+  int ENTITY__ANNOTATIONS = TYPE_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Super Type</b></em>' reference.
@@ -176,7 +213,7 @@ public interface BlackDogPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY__SUPER_TYPE = TYPE_FEATURE_COUNT + 1;
+  int ENTITY__SUPER_TYPE = TYPE_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -185,7 +222,7 @@ public interface BlackDogPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY__FEATURES = TYPE_FEATURE_COUNT + 2;
+  int ENTITY__FEATURES = TYPE_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Entity</em>' class.
@@ -194,7 +231,7 @@ public interface BlackDogPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY_FEATURE_COUNT = TYPE_FEATURE_COUNT + 3;
+  int ENTITY_FEATURE_COUNT = TYPE_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.FeatureImpl <em>Feature</em>}' class.
@@ -204,7 +241,16 @@ public interface BlackDogPackage extends EPackage
    * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.BlackDogPackageImpl#getFeature()
    * @generated
    */
-  int FEATURE = 4;
+  int FEATURE = 5;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FEATURE__DESCRIPTION = 0;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -213,7 +259,7 @@ public interface BlackDogPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__MANY = 0;
+  int FEATURE__MANY = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -222,7 +268,7 @@ public interface BlackDogPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__NAME = 1;
+  int FEATURE__NAME = 2;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -231,7 +277,7 @@ public interface BlackDogPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__TYPE = 2;
+  int FEATURE__TYPE = 3;
 
   /**
    * The number of structural features of the '<em>Feature</em>' class.
@@ -240,7 +286,7 @@ public interface BlackDogPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_FEATURE_COUNT = 3;
+  int FEATURE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.AnnotationImpl <em>Annotation</em>}' class.
@@ -250,7 +296,7 @@ public interface BlackDogPackage extends EPackage
    * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.BlackDogPackageImpl#getAnnotation()
    * @generated
    */
-  int ANNOTATION = 5;
+  int ANNOTATION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -324,6 +370,27 @@ public interface BlackDogPackage extends EPackage
   EClass getDataType();
 
   /**
+   * Returns the meta object for class '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Description</em>'.
+   * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description
+   * @generated
+   */
+  EClass getDescription();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description#getTextfield <em>Textfield</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Textfield</em>'.
+   * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description#getTextfield()
+   * @see #getDescription()
+   * @generated
+   */
+  EAttribute getDescription_Textfield();
+
+  /**
    * Returns the meta object for class '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity <em>Entity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -332,6 +399,17 @@ public interface BlackDogPackage extends EPackage
    * @generated
    */
   EClass getEntity();
+
+  /**
+   * Returns the meta object for the containment reference '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Description</em>'.
+   * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity#getDescription()
+   * @see #getEntity()
+   * @generated
+   */
+  EReference getEntity_Description();
 
   /**
    * Returns the meta object for the containment reference list '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity#getAnnotations <em>Annotations</em>}'.
@@ -375,6 +453,17 @@ public interface BlackDogPackage extends EPackage
    * @generated
    */
   EClass getFeature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Description</em>'.
+   * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature#getDescription()
+   * @see #getFeature()
+   * @generated
+   */
+  EReference getFeature_Description();
 
   /**
    * Returns the meta object for the attribute '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature#isMany <em>Many</em>}'.
@@ -500,6 +589,24 @@ public interface BlackDogPackage extends EPackage
     EClass DATA_TYPE = eINSTANCE.getDataType();
 
     /**
+     * The meta object literal for the '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.DescriptionImpl <em>Description</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.DescriptionImpl
+     * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.BlackDogPackageImpl#getDescription()
+     * @generated
+     */
+    EClass DESCRIPTION = eINSTANCE.getDescription();
+
+    /**
+     * The meta object literal for the '<em><b>Textfield</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DESCRIPTION__TEXTFIELD = eINSTANCE.getDescription_Textfield();
+
+    /**
      * The meta object literal for the '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.EntityImpl <em>Entity</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -508,6 +615,14 @@ public interface BlackDogPackage extends EPackage
      * @generated
      */
     EClass ENTITY = eINSTANCE.getEntity();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY__DESCRIPTION = eINSTANCE.getEntity_Description();
 
     /**
      * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
@@ -542,6 +657,14 @@ public interface BlackDogPackage extends EPackage
      * @generated
      */
     EClass FEATURE = eINSTANCE.getFeature();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FEATURE__DESCRIPTION = eINSTANCE.getFeature_Description();
 
     /**
      * The meta object literal for the '<em><b>Many</b></em>' attribute feature.

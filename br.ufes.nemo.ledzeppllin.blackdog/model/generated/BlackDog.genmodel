@@ -13,12 +13,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BlackDog.ecore#//Type/name"/>
     </genClasses>
     <genClasses ecoreClass="BlackDog.ecore#//DataType"/>
+    <genClasses ecoreClass="BlackDog.ecore#//Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BlackDog.ecore#//Description/textfield"/>
+    </genClasses>
     <genClasses ecoreClass="BlackDog.ecore#//Entity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BlackDog.ecore#//Entity/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BlackDog.ecore#//Entity/annotations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BlackDog.ecore#//Entity/superType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BlackDog.ecore#//Entity/features"/>
     </genClasses>
     <genClasses ecoreClass="BlackDog.ecore#//Feature">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BlackDog.ecore#//Feature/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BlackDog.ecore#//Feature/many"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BlackDog.ecore#//Feature/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BlackDog.ecore#//Feature/type"/>

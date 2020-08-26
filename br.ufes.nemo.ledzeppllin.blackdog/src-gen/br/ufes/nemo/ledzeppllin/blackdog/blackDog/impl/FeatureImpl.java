@@ -4,10 +4,12 @@
 package br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl;
 
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.BlackDogPackage;
+import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Type;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -23,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.FeatureImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.FeatureImpl#isMany <em>Many</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.FeatureImpl#getName <em>Name</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.FeatureImpl#getType <em>Type</em>}</li>
@@ -32,6 +35,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 {
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected Description description;
+
   /**
    * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -101,6 +114,56 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   protected EClass eStaticClass()
   {
     return BlackDogPackage.Literals.FEATURE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Description getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs)
+  {
+    Description oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BlackDogPackage.FEATURE__DESCRIPTION, oldDescription, newDescription);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDescription(Description newDescription)
+  {
+    if (newDescription != description)
+    {
+      NotificationChain msgs = null;
+      if (description != null)
+        msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BlackDogPackage.FEATURE__DESCRIPTION, null, msgs);
+      if (newDescription != null)
+        msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BlackDogPackage.FEATURE__DESCRIPTION, null, msgs);
+      msgs = basicSetDescription(newDescription, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BlackDogPackage.FEATURE__DESCRIPTION, newDescription, newDescription));
   }
 
   /**
@@ -204,10 +267,28 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BlackDogPackage.FEATURE__DESCRIPTION:
+        return basicSetDescription(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case BlackDogPackage.FEATURE__DESCRIPTION:
+        return getDescription();
       case BlackDogPackage.FEATURE__MANY:
         return isMany();
       case BlackDogPackage.FEATURE__NAME:
@@ -229,6 +310,9 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
+      case BlackDogPackage.FEATURE__DESCRIPTION:
+        setDescription((Description)newValue);
+        return;
       case BlackDogPackage.FEATURE__MANY:
         setMany((Boolean)newValue);
         return;
@@ -252,6 +336,9 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
+      case BlackDogPackage.FEATURE__DESCRIPTION:
+        setDescription((Description)null);
+        return;
       case BlackDogPackage.FEATURE__MANY:
         setMany(MANY_EDEFAULT);
         return;
@@ -275,6 +362,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
+      case BlackDogPackage.FEATURE__DESCRIPTION:
+        return description != null;
       case BlackDogPackage.FEATURE__MANY:
         return many != MANY_EDEFAULT;
       case BlackDogPackage.FEATURE__NAME:

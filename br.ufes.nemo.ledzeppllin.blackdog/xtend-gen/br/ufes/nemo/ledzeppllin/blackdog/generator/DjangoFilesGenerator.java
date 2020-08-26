@@ -89,7 +89,6 @@ public class DjangoFilesGenerator extends AbstractGenerator {
     fsa.generateFile("gitlab.yml", this.createYml(resource));
     fsa.generateFile(".gitignore", this.createGitignore(resource));
     fsa.generateFile("requirements.txt", this.createRequirements(resource));
-    fsa.generateFile("uml.puml", this.createClassDiagram(resource));
   }
   
   private CharSequence formHtml(final Entity e) {
@@ -470,7 +469,6 @@ public class DjangoFilesGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("    ");
     _builder.append("template_name = \"core/home.html\"");
-    _builder.newLine();
     _builder.newLine();
     {
       Iterable<Entity> _filter_1 = Iterables.<Entity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Entity.class);

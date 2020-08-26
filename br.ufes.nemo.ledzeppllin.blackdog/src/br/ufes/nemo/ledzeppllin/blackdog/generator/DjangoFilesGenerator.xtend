@@ -62,8 +62,9 @@ class DjangoFilesGenerator extends AbstractGenerator {
         fsa.generateFile("requirements.txt", resource.createRequirements)
         
         //Gera o UML
-        fsa.generateFile("uml.puml", resource.createClassDiagram)
+        //fsa.generateFile("uml.puml", resource.createClassDiagram)
 	}
+
 
 //------------ HTMLs ----------
     private def formHtml(Entity e)'''
@@ -211,7 +212,6 @@ class DjangoFilesGenerator extends AbstractGenerator {
             redirect_field_name = 'redirect_to'
 
             template_name = "core/home.html"
-
         «FOR e : resource.allContents.toIterable.filter(Entity)»
             «IF e.annotations.isEmpty»
 			    «e.createView»«e.listView»«e.updateView»«e.deleteView»

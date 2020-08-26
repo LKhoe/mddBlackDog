@@ -91,6 +91,11 @@ public class BlackDogAdapterFactory extends AdapterFactoryImpl
         return createDataTypeAdapter();
       }
       @Override
+      public Adapter caseDescription(Description object)
+      {
+        return createDescriptionAdapter();
+      }
+      @Override
       public Adapter caseEntity(Entity object)
       {
         return createEntityAdapter();
@@ -168,6 +173,21 @@ public class BlackDogAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDataTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description
+   * @generated
+   */
+  public Adapter createDescriptionAdapter()
   {
     return null;
   }

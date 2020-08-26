@@ -68,6 +68,7 @@ public class BlackDogFactoryImpl extends EFactoryImpl implements BlackDogFactory
       case BlackDogPackage.DOMAINMODEL: return createDomainmodel();
       case BlackDogPackage.TYPE: return createType();
       case BlackDogPackage.DATA_TYPE: return createDataType();
+      case BlackDogPackage.DESCRIPTION: return createDescription();
       case BlackDogPackage.ENTITY: return createEntity();
       case BlackDogPackage.FEATURE: return createFeature();
       case BlackDogPackage.ANNOTATION: return createAnnotation();
@@ -110,6 +111,18 @@ public class BlackDogFactoryImpl extends EFactoryImpl implements BlackDogFactory
   {
     DataTypeImpl dataType = new DataTypeImpl();
     return dataType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Description createDescription()
+  {
+    DescriptionImpl description = new DescriptionImpl();
+    return description;
   }
 
   /**

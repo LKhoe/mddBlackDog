@@ -34,19 +34,23 @@ public class BlackDogParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 			builder.put(grammarAccess.getViewsAccess().getAlternatives(), "rule__Views__Alternatives");
 			builder.put(grammarAccess.getDataTypeAccess().getGroup(), "rule__DataType__Group__0");
+			builder.put(grammarAccess.getDescriptionAccess().getGroup(), "rule__Description__Group__0");
 			builder.put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
-			builder.put(grammarAccess.getEntityAccess().getGroup_3(), "rule__Entity__Group_3__0");
+			builder.put(grammarAccess.getEntityAccess().getGroup_4(), "rule__Entity__Group_4__0");
 			builder.put(grammarAccess.getFeatureAccess().getGroup(), "rule__Feature__Group__0");
 			builder.put(grammarAccess.getAnnotationAccess().getGroup(), "rule__Annotation__Group__0");
 			builder.put(grammarAccess.getDomainmodelAccess().getElementsAssignment(), "rule__Domainmodel__ElementsAssignment");
 			builder.put(grammarAccess.getDataTypeAccess().getNameAssignment_1(), "rule__DataType__NameAssignment_1");
-			builder.put(grammarAccess.getEntityAccess().getAnnotationsAssignment_0(), "rule__Entity__AnnotationsAssignment_0");
-			builder.put(grammarAccess.getEntityAccess().getNameAssignment_2(), "rule__Entity__NameAssignment_2");
-			builder.put(grammarAccess.getEntityAccess().getSuperTypeAssignment_3_1(), "rule__Entity__SuperTypeAssignment_3_1");
-			builder.put(grammarAccess.getEntityAccess().getFeaturesAssignment_5(), "rule__Entity__FeaturesAssignment_5");
-			builder.put(grammarAccess.getFeatureAccess().getManyAssignment_0(), "rule__Feature__ManyAssignment_0");
-			builder.put(grammarAccess.getFeatureAccess().getNameAssignment_1(), "rule__Feature__NameAssignment_1");
-			builder.put(grammarAccess.getFeatureAccess().getTypeAssignment_3(), "rule__Feature__TypeAssignment_3");
+			builder.put(grammarAccess.getDescriptionAccess().getTextfieldAssignment_1(), "rule__Description__TextfieldAssignment_1");
+			builder.put(grammarAccess.getEntityAccess().getDescriptionAssignment_0(), "rule__Entity__DescriptionAssignment_0");
+			builder.put(grammarAccess.getEntityAccess().getAnnotationsAssignment_1(), "rule__Entity__AnnotationsAssignment_1");
+			builder.put(grammarAccess.getEntityAccess().getNameAssignment_3(), "rule__Entity__NameAssignment_3");
+			builder.put(grammarAccess.getEntityAccess().getSuperTypeAssignment_4_1(), "rule__Entity__SuperTypeAssignment_4_1");
+			builder.put(grammarAccess.getEntityAccess().getFeaturesAssignment_6(), "rule__Entity__FeaturesAssignment_6");
+			builder.put(grammarAccess.getFeatureAccess().getDescriptionAssignment_0(), "rule__Feature__DescriptionAssignment_0");
+			builder.put(grammarAccess.getFeatureAccess().getManyAssignment_1(), "rule__Feature__ManyAssignment_1");
+			builder.put(grammarAccess.getFeatureAccess().getNameAssignment_2(), "rule__Feature__NameAssignment_2");
+			builder.put(grammarAccess.getFeatureAccess().getTypeAssignment_4(), "rule__Feature__TypeAssignment_4");
 			builder.put(grammarAccess.getAnnotationAccess().getNameAssignment_1(), "rule__Annotation__NameAssignment_1");
 		}
 	}

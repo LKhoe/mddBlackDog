@@ -7,6 +7,7 @@ import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Annotation;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.BlackDogFactory;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.BlackDogPackage;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.DataType;
+import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Domainmodel;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature;
@@ -47,6 +48,13 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
    * @generated
    */
   private EClass dataTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass descriptionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -193,6 +201,28 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
    * @generated
    */
   @Override
+  public EClass getDescription()
+  {
+    return descriptionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDescription_Textfield()
+  {
+    return (EAttribute)descriptionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEntity()
   {
     return entityEClass;
@@ -204,7 +234,7 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
    * @generated
    */
   @Override
-  public EReference getEntity_Annotations()
+  public EReference getEntity_Description()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(0);
   }
@@ -215,7 +245,7 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
    * @generated
    */
   @Override
-  public EReference getEntity_SuperType()
+  public EReference getEntity_Annotations()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(1);
   }
@@ -226,9 +256,20 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
    * @generated
    */
   @Override
-  public EReference getEntity_Features()
+  public EReference getEntity_SuperType()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEntity_Features()
+  {
+    return (EReference)entityEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -248,9 +289,9 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
    * @generated
    */
   @Override
-  public EAttribute getFeature_Many()
+  public EReference getFeature_Description()
   {
-    return (EAttribute)featureEClass.getEStructuralFeatures().get(0);
+    return (EReference)featureEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -259,7 +300,7 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
    * @generated
    */
   @Override
-  public EAttribute getFeature_Name()
+  public EAttribute getFeature_Many()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
   }
@@ -270,9 +311,20 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
    * @generated
    */
   @Override
+  public EAttribute getFeature_Name()
+  {
+    return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getFeature_Type()
   {
-    return (EReference)featureEClass.getEStructuralFeatures().get(2);
+    return (EReference)featureEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -336,12 +388,17 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
 
     dataTypeEClass = createEClass(DATA_TYPE);
 
+    descriptionEClass = createEClass(DESCRIPTION);
+    createEAttribute(descriptionEClass, DESCRIPTION__TEXTFIELD);
+
     entityEClass = createEClass(ENTITY);
+    createEReference(entityEClass, ENTITY__DESCRIPTION);
     createEReference(entityEClass, ENTITY__ANNOTATIONS);
     createEReference(entityEClass, ENTITY__SUPER_TYPE);
     createEReference(entityEClass, ENTITY__FEATURES);
 
     featureEClass = createEClass(FEATURE);
+    createEReference(featureEClass, FEATURE__DESCRIPTION);
     createEAttribute(featureEClass, FEATURE__MANY);
     createEAttribute(featureEClass, FEATURE__NAME);
     createEReference(featureEClass, FEATURE__TYPE);
@@ -391,12 +448,17 @@ public class BlackDogPackageImpl extends EPackageImpl implements BlackDogPackage
 
     initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(descriptionEClass, Description.class, "Description", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDescription_Textfield(), ecorePackage.getEString(), "textfield", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEntity_Description(), this.getDescription(), null, "description", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_SuperType(), this.getEntity(), null, "superType", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Features(), this.getFeature(), null, "features", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFeature_Description(), this.getDescription(), null, "description", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeature_Type(), this.getType(), null, "type", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -10,14 +10,19 @@ Type:
 
 DataType:
     'datatype' name=ID;
+    
+Description:
+    '#' textfield=STRING;
 
 Entity:
+    description = (Description)?
     (annotations+=Annotation)*
     'entity' name=ID ('extends' superType=[Entity])? '{'
         (features+=Feature)*
     '}';
 
 Feature:
+    description = (Description)?
     (many?='many')? name=ID ':' type=[Type];
 
 Annotation:

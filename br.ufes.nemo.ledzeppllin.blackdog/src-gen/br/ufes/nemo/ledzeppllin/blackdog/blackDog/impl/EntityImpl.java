@@ -5,6 +5,7 @@ package br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl;
 
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Annotation;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.BlackDogPackage;
+import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature;
 
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.EntityImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.EntityImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.EntityImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl.EntityImpl#getFeatures <em>Features</em>}</li>
@@ -40,6 +42,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EntityImpl extends TypeImpl implements Entity
 {
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected Description description;
+
   /**
    * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -89,6 +101,56 @@ public class EntityImpl extends TypeImpl implements Entity
   protected EClass eStaticClass()
   {
     return BlackDogPackage.Literals.ENTITY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Description getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs)
+  {
+    Description oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BlackDogPackage.ENTITY__DESCRIPTION, oldDescription, newDescription);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDescription(Description newDescription)
+  {
+    if (newDescription != description)
+    {
+      NotificationChain msgs = null;
+      if (description != null)
+        msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BlackDogPackage.ENTITY__DESCRIPTION, null, msgs);
+      if (newDescription != null)
+        msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BlackDogPackage.ENTITY__DESCRIPTION, null, msgs);
+      msgs = basicSetDescription(newDescription, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BlackDogPackage.ENTITY__DESCRIPTION, newDescription, newDescription));
   }
 
   /**
@@ -176,6 +238,8 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case BlackDogPackage.ENTITY__DESCRIPTION:
+        return basicSetDescription(null, msgs);
       case BlackDogPackage.ENTITY__ANNOTATIONS:
         return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
       case BlackDogPackage.ENTITY__FEATURES:
@@ -194,6 +258,8 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case BlackDogPackage.ENTITY__DESCRIPTION:
+        return getDescription();
       case BlackDogPackage.ENTITY__ANNOTATIONS:
         return getAnnotations();
       case BlackDogPackage.ENTITY__SUPER_TYPE:
@@ -216,6 +282,9 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case BlackDogPackage.ENTITY__DESCRIPTION:
+        setDescription((Description)newValue);
+        return;
       case BlackDogPackage.ENTITY__ANNOTATIONS:
         getAnnotations().clear();
         getAnnotations().addAll((Collection<? extends Annotation>)newValue);
@@ -241,6 +310,9 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case BlackDogPackage.ENTITY__DESCRIPTION:
+        setDescription((Description)null);
+        return;
       case BlackDogPackage.ENTITY__ANNOTATIONS:
         getAnnotations().clear();
         return;
@@ -264,6 +336,8 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case BlackDogPackage.ENTITY__DESCRIPTION:
+        return description != null;
       case BlackDogPackage.ENTITY__ANNOTATIONS:
         return annotations != null && !annotations.isEmpty();
       case BlackDogPackage.ENTITY__SUPER_TYPE:

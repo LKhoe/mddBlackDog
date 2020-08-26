@@ -6,6 +6,7 @@ package br.ufes.nemo.ledzeppllin.blackdog.serializer;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Annotation;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.BlackDogPackage;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.DataType;
+import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Domainmodel;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity;
 import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature;
@@ -41,6 +42,9 @@ public class BlackDogSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case BlackDogPackage.DATA_TYPE:
 				sequence_DataType(context, (DataType) semanticObject); 
+				return; 
+			case BlackDogPackage.DESCRIPTION:
+				sequence_Description(context, (Description) semanticObject); 
 				return; 
 			case BlackDogPackage.DOMAINMODEL:
 				sequence_Domainmodel(context, (Domainmodel) semanticObject); 
@@ -95,6 +99,24 @@ public class BlackDogSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     Description returns Description
+	 *
+	 * Constraint:
+	 *     textfield=STRING
+	 */
+	protected void sequence_Description(ISerializationContext context, Description semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BlackDogPackage.Literals.DESCRIPTION__TEXTFIELD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BlackDogPackage.Literals.DESCRIPTION__TEXTFIELD));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDescriptionAccess().getTextfieldSTRINGTerminalRuleCall_1_0(), semanticObject.getTextfield());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Domainmodel returns Domainmodel
 	 *
 	 * Constraint:
@@ -111,7 +133,7 @@ public class BlackDogSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Entity returns Entity
 	 *
 	 * Constraint:
-	 *     (annotations+=Annotation* name=ID superType=[Entity|ID]? features+=Feature*)
+	 *     (description=Description? annotations+=Annotation* name=ID superType=[Entity|ID]? features+=Feature*)
 	 */
 	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -123,7 +145,7 @@ public class BlackDogSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Feature returns Feature
 	 *
 	 * Constraint:
-	 *     (many?='many'? name=ID type=[Type|ID])
+	 *     (description=Description? many?='many'? name=ID type=[Type|ID])
 	 */
 	protected void sequence_Feature(ISerializationContext context, Feature semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -21,9 +21,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBlackDogParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'datatype'", "'entity'", "'extends'", "'{'", "'}'", "'many'", "':'", "'@'", "'None'", "'Create'", "'List'", "'Update'", "'Delete'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'datatype'", "'#'", "'entity'", "'extends'", "'{'", "'}'", "'many'", "':'", "'@'", "'None'", "'Create'", "'List'", "'Update'", "'Delete'"
     };
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -38,10 +38,11 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=6;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
+    public static final int T__24=24;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -141,7 +142,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=11 && LA1_0<=12)||LA1_0==18) ) {
+                if ( ((LA1_0>=11 && LA1_0<=13)||LA1_0==19) ) {
                     alt1=1;
                 }
 
@@ -263,7 +264,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
             if ( (LA2_0==11) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==12||LA2_0==18) ) {
+            else if ( ((LA2_0>=12 && LA2_0<=13)||LA2_0==19) ) {
                 alt2=2;
             }
             else {
@@ -437,8 +438,114 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDataType"
 
 
+    // $ANTLR start "entryRuleDescription"
+    // InternalBlackDog.g:177:1: entryRuleDescription returns [EObject current=null] : iv_ruleDescription= ruleDescription EOF ;
+    public final EObject entryRuleDescription() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDescription = null;
+
+
+        try {
+            // InternalBlackDog.g:177:52: (iv_ruleDescription= ruleDescription EOF )
+            // InternalBlackDog.g:178:2: iv_ruleDescription= ruleDescription EOF
+            {
+             newCompositeNode(grammarAccess.getDescriptionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleDescription=ruleDescription();
+
+            state._fsp--;
+
+             current =iv_ruleDescription; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDescription"
+
+
+    // $ANTLR start "ruleDescription"
+    // InternalBlackDog.g:184:1: ruleDescription returns [EObject current=null] : (otherlv_0= '#' ( (lv_textfield_1_0= RULE_STRING ) ) ) ;
+    public final EObject ruleDescription() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_textfield_1_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalBlackDog.g:190:2: ( (otherlv_0= '#' ( (lv_textfield_1_0= RULE_STRING ) ) ) )
+            // InternalBlackDog.g:191:2: (otherlv_0= '#' ( (lv_textfield_1_0= RULE_STRING ) ) )
+            {
+            // InternalBlackDog.g:191:2: (otherlv_0= '#' ( (lv_textfield_1_0= RULE_STRING ) ) )
+            // InternalBlackDog.g:192:3: otherlv_0= '#' ( (lv_textfield_1_0= RULE_STRING ) )
+            {
+            otherlv_0=(Token)match(input,12,FOLLOW_5); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getDescriptionAccess().getNumberSignKeyword_0());
+            		
+            // InternalBlackDog.g:196:3: ( (lv_textfield_1_0= RULE_STRING ) )
+            // InternalBlackDog.g:197:4: (lv_textfield_1_0= RULE_STRING )
+            {
+            // InternalBlackDog.g:197:4: (lv_textfield_1_0= RULE_STRING )
+            // InternalBlackDog.g:198:5: lv_textfield_1_0= RULE_STRING
+            {
+            lv_textfield_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+
+            					newLeafNode(lv_textfield_1_0, grammarAccess.getDescriptionAccess().getTextfieldSTRINGTerminalRuleCall_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getDescriptionRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"textfield",
+            						lv_textfield_1_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDescription"
+
+
     // $ANTLR start "entryRuleEntity"
-    // InternalBlackDog.g:177:1: entryRuleEntity returns [EObject current=null] : iv_ruleEntity= ruleEntity EOF ;
+    // InternalBlackDog.g:218:1: entryRuleEntity returns [EObject current=null] : iv_ruleEntity= ruleEntity EOF ;
     public final EObject entryRuleEntity() throws RecognitionException {
         EObject current = null;
 
@@ -446,8 +553,8 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBlackDog.g:177:47: (iv_ruleEntity= ruleEntity EOF )
-            // InternalBlackDog.g:178:2: iv_ruleEntity= ruleEntity EOF
+            // InternalBlackDog.g:218:47: (iv_ruleEntity= ruleEntity EOF )
+            // InternalBlackDog.g:219:2: iv_ruleEntity= ruleEntity EOF
             {
              newCompositeNode(grammarAccess.getEntityRule()); 
             pushFollow(FOLLOW_1);
@@ -474,54 +581,98 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEntity"
-    // InternalBlackDog.g:184:1: ruleEntity returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}' ) ;
+    // InternalBlackDog.g:225:1: ruleEntity returns [EObject current=null] : ( ( (lv_description_0_0= ruleDescription ) )? ( (lv_annotations_1_0= ruleAnnotation ) )* otherlv_2= 'entity' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? otherlv_6= '{' ( (lv_features_7_0= ruleFeature ) )* otherlv_8= '}' ) ;
     public final EObject ruleEntity() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
-        Token lv_name_2_0=null;
-        Token otherlv_3=null;
+        Token otherlv_2=null;
+        Token lv_name_3_0=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_7=null;
-        EObject lv_annotations_0_0 = null;
+        Token otherlv_6=null;
+        Token otherlv_8=null;
+        EObject lv_description_0_0 = null;
 
-        EObject lv_features_6_0 = null;
+        EObject lv_annotations_1_0 = null;
+
+        EObject lv_features_7_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBlackDog.g:190:2: ( ( ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}' ) )
-            // InternalBlackDog.g:191:2: ( ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}' )
+            // InternalBlackDog.g:231:2: ( ( ( (lv_description_0_0= ruleDescription ) )? ( (lv_annotations_1_0= ruleAnnotation ) )* otherlv_2= 'entity' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? otherlv_6= '{' ( (lv_features_7_0= ruleFeature ) )* otherlv_8= '}' ) )
+            // InternalBlackDog.g:232:2: ( ( (lv_description_0_0= ruleDescription ) )? ( (lv_annotations_1_0= ruleAnnotation ) )* otherlv_2= 'entity' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? otherlv_6= '{' ( (lv_features_7_0= ruleFeature ) )* otherlv_8= '}' )
             {
-            // InternalBlackDog.g:191:2: ( ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}' )
-            // InternalBlackDog.g:192:3: ( (lv_annotations_0_0= ruleAnnotation ) )* otherlv_1= 'entity' ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? otherlv_5= '{' ( (lv_features_6_0= ruleFeature ) )* otherlv_7= '}'
+            // InternalBlackDog.g:232:2: ( ( (lv_description_0_0= ruleDescription ) )? ( (lv_annotations_1_0= ruleAnnotation ) )* otherlv_2= 'entity' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? otherlv_6= '{' ( (lv_features_7_0= ruleFeature ) )* otherlv_8= '}' )
+            // InternalBlackDog.g:233:3: ( (lv_description_0_0= ruleDescription ) )? ( (lv_annotations_1_0= ruleAnnotation ) )* otherlv_2= 'entity' ( (lv_name_3_0= RULE_ID ) ) (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? otherlv_6= '{' ( (lv_features_7_0= ruleFeature ) )* otherlv_8= '}'
             {
-            // InternalBlackDog.g:192:3: ( (lv_annotations_0_0= ruleAnnotation ) )*
-            loop3:
-            do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+            // InternalBlackDog.g:233:3: ( (lv_description_0_0= ruleDescription ) )?
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==18) ) {
-                    alt3=1;
+            if ( (LA3_0==12) ) {
+                alt3=1;
+            }
+            switch (alt3) {
+                case 1 :
+                    // InternalBlackDog.g:234:4: (lv_description_0_0= ruleDescription )
+                    {
+                    // InternalBlackDog.g:234:4: (lv_description_0_0= ruleDescription )
+                    // InternalBlackDog.g:235:5: lv_description_0_0= ruleDescription
+                    {
+
+                    					newCompositeNode(grammarAccess.getEntityAccess().getDescriptionDescriptionParserRuleCall_0_0());
+                    				
+                    pushFollow(FOLLOW_6);
+                    lv_description_0_0=ruleDescription();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getEntityRule());
+                    					}
+                    					set(
+                    						current,
+                    						"description",
+                    						lv_description_0_0,
+                    						"br.ufes.nemo.ledzeppllin.blackdog.BlackDog.Description");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalBlackDog.g:252:3: ( (lv_annotations_1_0= ruleAnnotation ) )*
+            loop4:
+            do {
+                int alt4=2;
+                int LA4_0 = input.LA(1);
+
+                if ( (LA4_0==19) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt4) {
             	case 1 :
-            	    // InternalBlackDog.g:193:4: (lv_annotations_0_0= ruleAnnotation )
+            	    // InternalBlackDog.g:253:4: (lv_annotations_1_0= ruleAnnotation )
             	    {
-            	    // InternalBlackDog.g:193:4: (lv_annotations_0_0= ruleAnnotation )
-            	    // InternalBlackDog.g:194:5: lv_annotations_0_0= ruleAnnotation
+            	    // InternalBlackDog.g:253:4: (lv_annotations_1_0= ruleAnnotation )
+            	    // InternalBlackDog.g:254:5: lv_annotations_1_0= ruleAnnotation
             	    {
 
-            	    					newCompositeNode(grammarAccess.getEntityAccess().getAnnotationsAnnotationParserRuleCall_0_0());
+            	    					newCompositeNode(grammarAccess.getEntityAccess().getAnnotationsAnnotationParserRuleCall_1_0());
             	    				
-            	    pushFollow(FOLLOW_5);
-            	    lv_annotations_0_0=ruleAnnotation();
+            	    pushFollow(FOLLOW_6);
+            	    lv_annotations_1_0=ruleAnnotation();
 
             	    state._fsp--;
 
@@ -532,7 +683,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
             	    					add(
             	    						current,
             	    						"annotations",
-            	    						lv_annotations_0_0,
+            	    						lv_annotations_1_0,
             	    						"br.ufes.nemo.ledzeppllin.blackdog.BlackDog.Annotation");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -544,23 +695,23 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop3;
+            	    break loop4;
                 }
             } while (true);
 
-            otherlv_1=(Token)match(input,12,FOLLOW_4); 
+            otherlv_2=(Token)match(input,13,FOLLOW_4); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getEntityAccess().getEntityKeyword_1());
+            			newLeafNode(otherlv_2, grammarAccess.getEntityAccess().getEntityKeyword_2());
             		
-            // InternalBlackDog.g:215:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalBlackDog.g:216:4: (lv_name_2_0= RULE_ID )
+            // InternalBlackDog.g:275:3: ( (lv_name_3_0= RULE_ID ) )
+            // InternalBlackDog.g:276:4: (lv_name_3_0= RULE_ID )
             {
-            // InternalBlackDog.g:216:4: (lv_name_2_0= RULE_ID )
-            // InternalBlackDog.g:217:5: lv_name_2_0= RULE_ID
+            // InternalBlackDog.g:276:4: (lv_name_3_0= RULE_ID )
+            // InternalBlackDog.g:277:5: lv_name_3_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_6); 
+            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_7); 
 
-            					newLeafNode(lv_name_2_0, grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_2_0());
+            					newLeafNode(lv_name_3_0, grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_3_0());
             				
 
             					if (current==null) {
@@ -569,7 +720,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"name",
-            						lv_name_2_0,
+            						lv_name_3_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 
@@ -578,35 +729,35 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBlackDog.g:233:3: (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // InternalBlackDog.g:293:3: (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA4_0==13) ) {
-                alt4=1;
+            if ( (LA5_0==14) ) {
+                alt5=1;
             }
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
-                    // InternalBlackDog.g:234:4: otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) )
+                    // InternalBlackDog.g:294:4: otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) )
                     {
-                    otherlv_3=(Token)match(input,13,FOLLOW_4); 
+                    otherlv_4=(Token)match(input,14,FOLLOW_4); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getEntityAccess().getExtendsKeyword_3_0());
+                    				newLeafNode(otherlv_4, grammarAccess.getEntityAccess().getExtendsKeyword_4_0());
                     			
-                    // InternalBlackDog.g:238:4: ( (otherlv_4= RULE_ID ) )
-                    // InternalBlackDog.g:239:5: (otherlv_4= RULE_ID )
+                    // InternalBlackDog.g:298:4: ( (otherlv_5= RULE_ID ) )
+                    // InternalBlackDog.g:299:5: (otherlv_5= RULE_ID )
                     {
-                    // InternalBlackDog.g:239:5: (otherlv_4= RULE_ID )
-                    // InternalBlackDog.g:240:6: otherlv_4= RULE_ID
+                    // InternalBlackDog.g:299:5: (otherlv_5= RULE_ID )
+                    // InternalBlackDog.g:300:6: otherlv_5= RULE_ID
                     {
 
                     						if (current==null) {
                     							current = createModelElement(grammarAccess.getEntityRule());
                     						}
                     					
-                    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_7); 
+                    otherlv_5=(Token)match(input,RULE_ID,FOLLOW_8); 
 
-                    						newLeafNode(otherlv_4, grammarAccess.getEntityAccess().getSuperTypeEntityCrossReference_3_1_0());
+                    						newLeafNode(otherlv_5, grammarAccess.getEntityAccess().getSuperTypeEntityCrossReference_4_1_0());
                     					
 
                     }
@@ -620,33 +771,33 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,14,FOLLOW_8); 
+            otherlv_6=(Token)match(input,15,FOLLOW_9); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_4());
+            			newLeafNode(otherlv_6, grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_5());
             		
-            // InternalBlackDog.g:256:3: ( (lv_features_6_0= ruleFeature ) )*
-            loop5:
+            // InternalBlackDog.g:316:3: ( (lv_features_7_0= ruleFeature ) )*
+            loop6:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( (LA5_0==RULE_ID||LA5_0==16) ) {
-                    alt5=1;
+                if ( (LA6_0==RULE_ID||LA6_0==12||LA6_0==17) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt6) {
             	case 1 :
-            	    // InternalBlackDog.g:257:4: (lv_features_6_0= ruleFeature )
+            	    // InternalBlackDog.g:317:4: (lv_features_7_0= ruleFeature )
             	    {
-            	    // InternalBlackDog.g:257:4: (lv_features_6_0= ruleFeature )
-            	    // InternalBlackDog.g:258:5: lv_features_6_0= ruleFeature
+            	    // InternalBlackDog.g:317:4: (lv_features_7_0= ruleFeature )
+            	    // InternalBlackDog.g:318:5: lv_features_7_0= ruleFeature
             	    {
 
-            	    					newCompositeNode(grammarAccess.getEntityAccess().getFeaturesFeatureParserRuleCall_5_0());
+            	    					newCompositeNode(grammarAccess.getEntityAccess().getFeaturesFeatureParserRuleCall_6_0());
             	    				
-            	    pushFollow(FOLLOW_8);
-            	    lv_features_6_0=ruleFeature();
+            	    pushFollow(FOLLOW_9);
+            	    lv_features_7_0=ruleFeature();
 
             	    state._fsp--;
 
@@ -657,7 +808,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
             	    					add(
             	    						current,
             	    						"features",
-            	    						lv_features_6_0,
+            	    						lv_features_7_0,
             	    						"br.ufes.nemo.ledzeppllin.blackdog.BlackDog.Feature");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -669,13 +820,13 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop5;
+            	    break loop6;
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,15,FOLLOW_2); 
+            otherlv_8=(Token)match(input,16,FOLLOW_2); 
 
-            			newLeafNode(otherlv_7, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_6());
+            			newLeafNode(otherlv_8, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_7());
             		
 
             }
@@ -700,7 +851,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFeature"
-    // InternalBlackDog.g:283:1: entryRuleFeature returns [EObject current=null] : iv_ruleFeature= ruleFeature EOF ;
+    // InternalBlackDog.g:343:1: entryRuleFeature returns [EObject current=null] : iv_ruleFeature= ruleFeature EOF ;
     public final EObject entryRuleFeature() throws RecognitionException {
         EObject current = null;
 
@@ -708,8 +859,8 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBlackDog.g:283:48: (iv_ruleFeature= ruleFeature EOF )
-            // InternalBlackDog.g:284:2: iv_ruleFeature= ruleFeature EOF
+            // InternalBlackDog.g:343:48: (iv_ruleFeature= ruleFeature EOF )
+            // InternalBlackDog.g:344:2: iv_ruleFeature= ruleFeature EOF
             {
              newCompositeNode(grammarAccess.getFeatureRule()); 
             pushFollow(FOLLOW_1);
@@ -736,42 +887,86 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFeature"
-    // InternalBlackDog.g:290:1: ruleFeature returns [EObject current=null] : ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) ;
+    // InternalBlackDog.g:350:1: ruleFeature returns [EObject current=null] : ( ( (lv_description_0_0= ruleDescription ) )? ( (lv_many_1_0= 'many' ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) ) ) ;
     public final EObject ruleFeature() throws RecognitionException {
         EObject current = null;
 
-        Token lv_many_0_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
+        Token lv_many_1_0=null;
+        Token lv_name_2_0=null;
         Token otherlv_3=null;
+        Token otherlv_4=null;
+        EObject lv_description_0_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalBlackDog.g:296:2: ( ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) )
-            // InternalBlackDog.g:297:2: ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )
+            // InternalBlackDog.g:356:2: ( ( ( (lv_description_0_0= ruleDescription ) )? ( (lv_many_1_0= 'many' ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) ) ) )
+            // InternalBlackDog.g:357:2: ( ( (lv_description_0_0= ruleDescription ) )? ( (lv_many_1_0= 'many' ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) ) )
             {
-            // InternalBlackDog.g:297:2: ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )
-            // InternalBlackDog.g:298:3: ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )
+            // InternalBlackDog.g:357:2: ( ( (lv_description_0_0= ruleDescription ) )? ( (lv_many_1_0= 'many' ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) ) )
+            // InternalBlackDog.g:358:3: ( (lv_description_0_0= ruleDescription ) )? ( (lv_many_1_0= 'many' ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) )
             {
-            // InternalBlackDog.g:298:3: ( (lv_many_0_0= 'many' ) )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalBlackDog.g:358:3: ( (lv_description_0_0= ruleDescription ) )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==16) ) {
-                alt6=1;
+            if ( (LA7_0==12) ) {
+                alt7=1;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalBlackDog.g:299:4: (lv_many_0_0= 'many' )
+                    // InternalBlackDog.g:359:4: (lv_description_0_0= ruleDescription )
                     {
-                    // InternalBlackDog.g:299:4: (lv_many_0_0= 'many' )
-                    // InternalBlackDog.g:300:5: lv_many_0_0= 'many'
+                    // InternalBlackDog.g:359:4: (lv_description_0_0= ruleDescription )
+                    // InternalBlackDog.g:360:5: lv_description_0_0= ruleDescription
                     {
-                    lv_many_0_0=(Token)match(input,16,FOLLOW_4); 
 
-                    					newLeafNode(lv_many_0_0, grammarAccess.getFeatureAccess().getManyManyKeyword_0_0());
+                    					newCompositeNode(grammarAccess.getFeatureAccess().getDescriptionDescriptionParserRuleCall_0_0());
+                    				
+                    pushFollow(FOLLOW_10);
+                    lv_description_0_0=ruleDescription();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getFeatureRule());
+                    					}
+                    					set(
+                    						current,
+                    						"description",
+                    						lv_description_0_0,
+                    						"br.ufes.nemo.ledzeppllin.blackdog.BlackDog.Description");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalBlackDog.g:377:3: ( (lv_many_1_0= 'many' ) )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==17) ) {
+                alt8=1;
+            }
+            switch (alt8) {
+                case 1 :
+                    // InternalBlackDog.g:378:4: (lv_many_1_0= 'many' )
+                    {
+                    // InternalBlackDog.g:378:4: (lv_many_1_0= 'many' )
+                    // InternalBlackDog.g:379:5: lv_many_1_0= 'many'
+                    {
+                    lv_many_1_0=(Token)match(input,17,FOLLOW_4); 
+
+                    					newLeafNode(lv_many_1_0, grammarAccess.getFeatureAccess().getManyManyKeyword_1_0());
                     				
 
                     					if (current==null) {
@@ -788,15 +983,15 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBlackDog.g:312:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalBlackDog.g:313:4: (lv_name_1_0= RULE_ID )
+            // InternalBlackDog.g:391:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalBlackDog.g:392:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalBlackDog.g:313:4: (lv_name_1_0= RULE_ID )
-            // InternalBlackDog.g:314:5: lv_name_1_0= RULE_ID
+            // InternalBlackDog.g:392:4: (lv_name_2_0= RULE_ID )
+            // InternalBlackDog.g:393:5: lv_name_2_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_11); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getFeatureAccess().getNameIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_name_2_0, grammarAccess.getFeatureAccess().getNameIDTerminalRuleCall_2_0());
             				
 
             					if (current==null) {
@@ -805,7 +1000,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"name",
-            						lv_name_1_0,
+            						lv_name_2_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 
@@ -814,24 +1009,24 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,17,FOLLOW_4); 
+            otherlv_3=(Token)match(input,18,FOLLOW_4); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getFeatureAccess().getColonKeyword_2());
+            			newLeafNode(otherlv_3, grammarAccess.getFeatureAccess().getColonKeyword_3());
             		
-            // InternalBlackDog.g:334:3: ( (otherlv_3= RULE_ID ) )
-            // InternalBlackDog.g:335:4: (otherlv_3= RULE_ID )
+            // InternalBlackDog.g:413:3: ( (otherlv_4= RULE_ID ) )
+            // InternalBlackDog.g:414:4: (otherlv_4= RULE_ID )
             {
-            // InternalBlackDog.g:335:4: (otherlv_3= RULE_ID )
-            // InternalBlackDog.g:336:5: otherlv_3= RULE_ID
+            // InternalBlackDog.g:414:4: (otherlv_4= RULE_ID )
+            // InternalBlackDog.g:415:5: otherlv_4= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getFeatureRule());
             					}
             				
-            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_2); 
+            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(otherlv_3, grammarAccess.getFeatureAccess().getTypeTypeCrossReference_3_0());
+            					newLeafNode(otherlv_4, grammarAccess.getFeatureAccess().getTypeTypeCrossReference_4_0());
             				
 
             }
@@ -862,7 +1057,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAnnotation"
-    // InternalBlackDog.g:351:1: entryRuleAnnotation returns [EObject current=null] : iv_ruleAnnotation= ruleAnnotation EOF ;
+    // InternalBlackDog.g:430:1: entryRuleAnnotation returns [EObject current=null] : iv_ruleAnnotation= ruleAnnotation EOF ;
     public final EObject entryRuleAnnotation() throws RecognitionException {
         EObject current = null;
 
@@ -870,8 +1065,8 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBlackDog.g:351:51: (iv_ruleAnnotation= ruleAnnotation EOF )
-            // InternalBlackDog.g:352:2: iv_ruleAnnotation= ruleAnnotation EOF
+            // InternalBlackDog.g:430:51: (iv_ruleAnnotation= ruleAnnotation EOF )
+            // InternalBlackDog.g:431:2: iv_ruleAnnotation= ruleAnnotation EOF
             {
              newCompositeNode(grammarAccess.getAnnotationRule()); 
             pushFollow(FOLLOW_1);
@@ -898,7 +1093,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnnotation"
-    // InternalBlackDog.g:358:1: ruleAnnotation returns [EObject current=null] : (otherlv_0= '@' ( (lv_name_1_0= ruleViews ) ) ) ;
+    // InternalBlackDog.g:437:1: ruleAnnotation returns [EObject current=null] : (otherlv_0= '@' ( (lv_name_1_0= ruleViews ) ) ) ;
     public final EObject ruleAnnotation() throws RecognitionException {
         EObject current = null;
 
@@ -910,21 +1105,21 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBlackDog.g:364:2: ( (otherlv_0= '@' ( (lv_name_1_0= ruleViews ) ) ) )
-            // InternalBlackDog.g:365:2: (otherlv_0= '@' ( (lv_name_1_0= ruleViews ) ) )
+            // InternalBlackDog.g:443:2: ( (otherlv_0= '@' ( (lv_name_1_0= ruleViews ) ) ) )
+            // InternalBlackDog.g:444:2: (otherlv_0= '@' ( (lv_name_1_0= ruleViews ) ) )
             {
-            // InternalBlackDog.g:365:2: (otherlv_0= '@' ( (lv_name_1_0= ruleViews ) ) )
-            // InternalBlackDog.g:366:3: otherlv_0= '@' ( (lv_name_1_0= ruleViews ) )
+            // InternalBlackDog.g:444:2: (otherlv_0= '@' ( (lv_name_1_0= ruleViews ) ) )
+            // InternalBlackDog.g:445:3: otherlv_0= '@' ( (lv_name_1_0= ruleViews ) )
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_10); 
+            otherlv_0=(Token)match(input,19,FOLLOW_12); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAnnotationAccess().getCommercialAtKeyword_0());
             		
-            // InternalBlackDog.g:370:3: ( (lv_name_1_0= ruleViews ) )
-            // InternalBlackDog.g:371:4: (lv_name_1_0= ruleViews )
+            // InternalBlackDog.g:449:3: ( (lv_name_1_0= ruleViews ) )
+            // InternalBlackDog.g:450:4: (lv_name_1_0= ruleViews )
             {
-            // InternalBlackDog.g:371:4: (lv_name_1_0= ruleViews )
-            // InternalBlackDog.g:372:5: lv_name_1_0= ruleViews
+            // InternalBlackDog.g:450:4: (lv_name_1_0= ruleViews )
+            // InternalBlackDog.g:451:5: lv_name_1_0= ruleViews
             {
 
             					newCompositeNode(grammarAccess.getAnnotationAccess().getNameViewsParserRuleCall_1_0());
@@ -974,7 +1169,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleViews"
-    // InternalBlackDog.g:393:1: entryRuleViews returns [String current=null] : iv_ruleViews= ruleViews EOF ;
+    // InternalBlackDog.g:472:1: entryRuleViews returns [String current=null] : iv_ruleViews= ruleViews EOF ;
     public final String entryRuleViews() throws RecognitionException {
         String current = null;
 
@@ -982,8 +1177,8 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBlackDog.g:393:45: (iv_ruleViews= ruleViews EOF )
-            // InternalBlackDog.g:394:2: iv_ruleViews= ruleViews EOF
+            // InternalBlackDog.g:472:45: (iv_ruleViews= ruleViews EOF )
+            // InternalBlackDog.g:473:2: iv_ruleViews= ruleViews EOF
             {
              newCompositeNode(grammarAccess.getViewsRule()); 
             pushFollow(FOLLOW_1);
@@ -1010,7 +1205,7 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleViews"
-    // InternalBlackDog.g:400:1: ruleViews returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'None' | kw= 'Create' | kw= 'List' | kw= 'Update' | kw= 'Delete' ) ;
+    // InternalBlackDog.g:479:1: ruleViews returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'None' | kw= 'Create' | kw= 'List' | kw= 'Update' | kw= 'Delete' ) ;
     public final AntlrDatatypeRuleToken ruleViews() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1020,49 +1215,49 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBlackDog.g:406:2: ( (kw= 'None' | kw= 'Create' | kw= 'List' | kw= 'Update' | kw= 'Delete' ) )
-            // InternalBlackDog.g:407:2: (kw= 'None' | kw= 'Create' | kw= 'List' | kw= 'Update' | kw= 'Delete' )
+            // InternalBlackDog.g:485:2: ( (kw= 'None' | kw= 'Create' | kw= 'List' | kw= 'Update' | kw= 'Delete' ) )
+            // InternalBlackDog.g:486:2: (kw= 'None' | kw= 'Create' | kw= 'List' | kw= 'Update' | kw= 'Delete' )
             {
-            // InternalBlackDog.g:407:2: (kw= 'None' | kw= 'Create' | kw= 'List' | kw= 'Update' | kw= 'Delete' )
-            int alt7=5;
+            // InternalBlackDog.g:486:2: (kw= 'None' | kw= 'Create' | kw= 'List' | kw= 'Update' | kw= 'Delete' )
+            int alt9=5;
             switch ( input.LA(1) ) {
-            case 19:
-                {
-                alt7=1;
-                }
-                break;
             case 20:
                 {
-                alt7=2;
+                alt9=1;
                 }
                 break;
             case 21:
                 {
-                alt7=3;
+                alt9=2;
                 }
                 break;
             case 22:
                 {
-                alt7=4;
+                alt9=3;
                 }
                 break;
             case 23:
                 {
-                alt7=5;
+                alt9=4;
+                }
+                break;
+            case 24:
+                {
+                alt9=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt7) {
+            switch (alt9) {
                 case 1 :
-                    // InternalBlackDog.g:408:3: kw= 'None'
+                    // InternalBlackDog.g:487:3: kw= 'None'
                     {
-                    kw=(Token)match(input,19,FOLLOW_2); 
+                    kw=(Token)match(input,20,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getViewsAccess().getNoneKeyword_0());
@@ -1071,9 +1266,9 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBlackDog.g:414:3: kw= 'Create'
+                    // InternalBlackDog.g:493:3: kw= 'Create'
                     {
-                    kw=(Token)match(input,20,FOLLOW_2); 
+                    kw=(Token)match(input,21,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getViewsAccess().getCreateKeyword_1());
@@ -1082,9 +1277,9 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBlackDog.g:420:3: kw= 'List'
+                    // InternalBlackDog.g:499:3: kw= 'List'
                     {
-                    kw=(Token)match(input,21,FOLLOW_2); 
+                    kw=(Token)match(input,22,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getViewsAccess().getListKeyword_2());
@@ -1093,9 +1288,9 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalBlackDog.g:426:3: kw= 'Update'
+                    // InternalBlackDog.g:505:3: kw= 'Update'
                     {
-                    kw=(Token)match(input,22,FOLLOW_2); 
+                    kw=(Token)match(input,23,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getViewsAccess().getUpdateKeyword_3());
@@ -1104,9 +1299,9 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalBlackDog.g:432:3: kw= 'Delete'
+                    // InternalBlackDog.g:511:3: kw= 'Delete'
                     {
-                    kw=(Token)match(input,23,FOLLOW_2); 
+                    kw=(Token)match(input,24,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getViewsAccess().getDeleteKeyword_4());
@@ -1142,13 +1337,15 @@ public class InternalBlackDogParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000041802L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000083802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000041000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000018010L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000F80000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000082000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000031010L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020010L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001F00000L});
 
 }

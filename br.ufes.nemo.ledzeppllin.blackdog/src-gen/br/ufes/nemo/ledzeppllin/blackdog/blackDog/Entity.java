@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity#getDescription <em>Description</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity#getFeatures <em>Features</em>}</li>
@@ -25,6 +26,28 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Entity extends Type
 {
+  /**
+   * Returns the value of the '<em><b>Description</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' containment reference.
+   * @see #setDescription(Description)
+   * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.BlackDogPackage#getEntity_Description()
+   * @model containment="true"
+   * @generated
+   */
+  Description getDescription();
+
+  /**
+   * Sets the value of the '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity#getDescription <em>Description</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' containment reference.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(Description value);
+
   /**
    * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
    * The list contents are of type {@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Annotation}.

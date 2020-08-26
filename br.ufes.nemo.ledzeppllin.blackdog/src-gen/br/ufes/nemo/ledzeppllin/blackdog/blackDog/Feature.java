@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature#getDescription <em>Description</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature#isMany <em>Many</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature#getName <em>Name</em>}</li>
  *   <li>{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature#getType <em>Type</em>}</li>
@@ -25,6 +26,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Feature extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Description</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' containment reference.
+   * @see #setDescription(Description)
+   * @see br.ufes.nemo.ledzeppllin.blackdog.blackDog.BlackDogPackage#getFeature_Description()
+   * @model containment="true"
+   * @generated
+   */
+  Description getDescription();
+
+  /**
+   * Sets the value of the '{@link br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature#getDescription <em>Description</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' containment reference.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(Description value);
+
   /**
    * Returns the value of the '<em><b>Many</b></em>' attribute.
    * <!-- begin-user-doc -->

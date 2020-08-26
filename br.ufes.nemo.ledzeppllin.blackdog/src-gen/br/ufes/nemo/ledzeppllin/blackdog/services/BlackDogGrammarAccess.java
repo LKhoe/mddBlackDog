@@ -80,42 +80,142 @@ public class BlackDogGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
+	public class DescriptionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.nemo.ledzeppllin.blackdog.BlackDog.Description");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNumberSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTextfieldAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTextfieldSTRINGTerminalRuleCall_1_0 = (RuleCall)cTextfieldAssignment_1.eContents().get(0);
+		
+		//Description:
+		//	'#' textfield=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'#' textfield=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'#'
+		public Keyword getNumberSignKeyword_0() { return cNumberSignKeyword_0; }
+		
+		//textfield=STRING
+		public Assignment getTextfieldAssignment_1() { return cTextfieldAssignment_1; }
+		
+		//STRING
+		public RuleCall getTextfieldSTRINGTerminalRuleCall_1_0() { return cTextfieldSTRINGTerminalRuleCall_1_0; }
+	}
 	public class EntityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.nemo.ledzeppllin.blackdog.BlackDog.Entity");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cAnnotationsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cAnnotationsAnnotationParserRuleCall_0_0 = (RuleCall)cAnnotationsAssignment_0.eContents().get(0);
-		private final Keyword cEntityKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSuperTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cSuperTypeEntityCrossReference_3_1_0 = (CrossReference)cSuperTypeAssignment_3_1.eContents().get(0);
-		private final RuleCall cSuperTypeEntityIDTerminalRuleCall_3_1_0_1 = (RuleCall)cSuperTypeEntityCrossReference_3_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cFeaturesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cFeaturesFeatureParserRuleCall_5_0 = (RuleCall)cFeaturesAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDescriptionDescriptionParserRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
+		private final Assignment cAnnotationsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAnnotationsAnnotationParserRuleCall_1_0 = (RuleCall)cAnnotationsAssignment_1.eContents().get(0);
+		private final Keyword cEntityKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cExtendsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cSuperTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cSuperTypeEntityCrossReference_4_1_0 = (CrossReference)cSuperTypeAssignment_4_1.eContents().get(0);
+		private final RuleCall cSuperTypeEntityIDTerminalRuleCall_4_1_0_1 = (RuleCall)cSuperTypeEntityCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cFeaturesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cFeaturesFeatureParserRuleCall_6_0 = (RuleCall)cFeaturesAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Entity:
+		//	description=Description?
 		//	annotations+=Annotation*
 		//	'entity' name=ID ('extends' superType=[Entity])? '{'
 		//	features+=Feature*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//annotations+=Annotation* 'entity' name=ID ('extends' superType=[Entity])? '{' features+=Feature* '}'
+		//description=Description? annotations+=Annotation* 'entity' name=ID ('extends' superType=[Entity])? '{'
+		//features+=Feature* '}'
 		public Group getGroup() { return cGroup; }
 		
+		//description=Description?
+		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
+		
+		//Description
+		public RuleCall getDescriptionDescriptionParserRuleCall_0_0() { return cDescriptionDescriptionParserRuleCall_0_0; }
+		
 		//annotations+=Annotation*
-		public Assignment getAnnotationsAssignment_0() { return cAnnotationsAssignment_0; }
+		public Assignment getAnnotationsAssignment_1() { return cAnnotationsAssignment_1; }
 		
 		//Annotation
-		public RuleCall getAnnotationsAnnotationParserRuleCall_0_0() { return cAnnotationsAnnotationParserRuleCall_0_0; }
+		public RuleCall getAnnotationsAnnotationParserRuleCall_1_0() { return cAnnotationsAnnotationParserRuleCall_1_0; }
 		
 		//'entity'
-		public Keyword getEntityKeyword_1() { return cEntityKeyword_1; }
+		public Keyword getEntityKeyword_2() { return cEntityKeyword_2; }
+		
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		
+		//('extends' superType=[Entity])?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'extends'
+		public Keyword getExtendsKeyword_4_0() { return cExtendsKeyword_4_0; }
+		
+		//superType=[Entity]
+		public Assignment getSuperTypeAssignment_4_1() { return cSuperTypeAssignment_4_1; }
+		
+		//[Entity]
+		public CrossReference getSuperTypeEntityCrossReference_4_1_0() { return cSuperTypeEntityCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getSuperTypeEntityIDTerminalRuleCall_4_1_0_1() { return cSuperTypeEntityIDTerminalRuleCall_4_1_0_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		
+		//features+=Feature*
+		public Assignment getFeaturesAssignment_6() { return cFeaturesAssignment_6; }
+		
+		//Feature
+		public RuleCall getFeaturesFeatureParserRuleCall_6_0() { return cFeaturesFeatureParserRuleCall_6_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+	public class FeatureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.nemo.ledzeppllin.blackdog.BlackDog.Feature");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDescriptionDescriptionParserRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
+		private final Assignment cManyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cManyManyKeyword_1_0 = (Keyword)cManyAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cTypeTypeCrossReference_4_0 = (CrossReference)cTypeAssignment_4.eContents().get(0);
+		private final RuleCall cTypeTypeIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeTypeCrossReference_4_0.eContents().get(1);
+		
+		//Feature:
+		//	description=Description?
+		//	many?='many'? name=ID ':' type=[Type];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//description=Description? many?='many'? name=ID ':' type=[Type]
+		public Group getGroup() { return cGroup; }
+		
+		//description=Description?
+		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
+		
+		//Description
+		public RuleCall getDescriptionDescriptionParserRuleCall_0_0() { return cDescriptionDescriptionParserRuleCall_0_0; }
+		
+		//many?='many'?
+		public Assignment getManyAssignment_1() { return cManyAssignment_1; }
+		
+		//'many'
+		public Keyword getManyManyKeyword_1_0() { return cManyManyKeyword_1_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -123,75 +223,17 @@ public class BlackDogGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
-		//('extends' superType=[Entity])?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'extends'
-		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
-		
-		//superType=[Entity]
-		public Assignment getSuperTypeAssignment_3_1() { return cSuperTypeAssignment_3_1; }
-		
-		//[Entity]
-		public CrossReference getSuperTypeEntityCrossReference_3_1_0() { return cSuperTypeEntityCrossReference_3_1_0; }
-		
-		//ID
-		public RuleCall getSuperTypeEntityIDTerminalRuleCall_3_1_0_1() { return cSuperTypeEntityIDTerminalRuleCall_3_1_0_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
-		
-		//features+=Feature*
-		public Assignment getFeaturesAssignment_5() { return cFeaturesAssignment_5; }
-		
-		//Feature
-		public RuleCall getFeaturesFeatureParserRuleCall_5_0() { return cFeaturesFeatureParserRuleCall_5_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
-	}
-	public class FeatureElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.nemo.ledzeppllin.blackdog.BlackDog.Feature");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cManyAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cManyManyKeyword_0_0 = (Keyword)cManyAssignment_0.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cTypeTypeCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
-		private final RuleCall cTypeTypeIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeTypeCrossReference_3_0.eContents().get(1);
-		
-		//Feature:
-		//	many?='many'? name=ID ':' type=[Type];
-		@Override public ParserRule getRule() { return rule; }
-		
-		//many?='many'? name=ID ':' type=[Type]
-		public Group getGroup() { return cGroup; }
-		
-		//many?='many'?
-		public Assignment getManyAssignment_0() { return cManyAssignment_0; }
-		
-		//'many'
-		public Keyword getManyManyKeyword_0_0() { return cManyManyKeyword_0_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
 		//':'
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
 		//type=[Type]
-		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
 		
 		//[Type]
-		public CrossReference getTypeTypeCrossReference_3_0() { return cTypeTypeCrossReference_3_0; }
+		public CrossReference getTypeTypeCrossReference_4_0() { return cTypeTypeCrossReference_4_0; }
 		
 		//ID
-		public RuleCall getTypeTypeIDTerminalRuleCall_3_0_1() { return cTypeTypeIDTerminalRuleCall_3_0_1; }
+		public RuleCall getTypeTypeIDTerminalRuleCall_4_0_1() { return cTypeTypeIDTerminalRuleCall_4_0_1; }
 	}
 	public class AnnotationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.nemo.ledzeppllin.blackdog.BlackDog.Annotation");
@@ -252,6 +294,7 @@ public class BlackDogGrammarAccess extends AbstractGrammarElementFinder {
 	private final DomainmodelElements pDomainmodel;
 	private final TypeElements pType;
 	private final DataTypeElements pDataType;
+	private final DescriptionElements pDescription;
 	private final EntityElements pEntity;
 	private final FeatureElements pFeature;
 	private final AnnotationElements pAnnotation;
@@ -269,6 +312,7 @@ public class BlackDogGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDomainmodel = new DomainmodelElements();
 		this.pType = new TypeElements();
 		this.pDataType = new DataTypeElements();
+		this.pDescription = new DescriptionElements();
 		this.pEntity = new EntityElements();
 		this.pFeature = new FeatureElements();
 		this.pAnnotation = new AnnotationElements();
@@ -332,7 +376,18 @@ public class BlackDogGrammarAccess extends AbstractGrammarElementFinder {
 		return getDataTypeAccess().getRule();
 	}
 	
+	//Description:
+	//	'#' textfield=STRING;
+	public DescriptionElements getDescriptionAccess() {
+		return pDescription;
+	}
+	
+	public ParserRule getDescriptionRule() {
+		return getDescriptionAccess().getRule();
+	}
+	
 	//Entity:
+	//	description=Description?
 	//	annotations+=Annotation*
 	//	'entity' name=ID ('extends' superType=[Entity])? '{'
 	//	features+=Feature*
@@ -346,6 +401,7 @@ public class BlackDogGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Feature:
+	//	description=Description?
 	//	many?='many'? name=ID ':' type=[Type];
 	public FeatureElements getFeatureAccess() {
 		return pFeature;
