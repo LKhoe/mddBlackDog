@@ -597,17 +597,17 @@ class DjangoFilesGenerator extends AbstractGenerator {
 ////Class Diagram
     private def createClassDiagram(Resource resource) '''
         @startuml
-        
-        «FOR e : resource.allContents.toIterable.filter(Entity)»
-            «IF e.superType.fullyQualifiedName != 'null'»
+       «FOR e : resource.allContents.toIterable.filter(Entity)»
+       		«IF e.superType !== null»
                 «e.superType.name» <|-- «e.name»
             «ENDIF»
 
-            «FOR f : e.features»«IF f.type.toString == 'Entity'»
-                «e.name» --> «f.type.fullyQualifiedName»
-            «ENDIF»«ENDFOR»
+            «FOR f : e.features»
+            	«IF f.type.name != 'String'»
+	            	«e.name» --> «f.type.name»
+            	«ENDIF»
+            «ENDFOR»
         «ENDFOR»
-        
         @enduml
     '''
 }

@@ -1436,16 +1436,16 @@ public class DjangoFilesGenerator extends AbstractGenerator {
   
   private CharSequence createClassDiagram(final Resource resource) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
     _builder.append("@startuml");
-    _builder.newLine();
     _builder.newLine();
     {
       Iterable<Entity> _filter = Iterables.<Entity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Entity.class);
       for(final Entity e : _filter) {
         {
-          QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(e.getSuperType());
-          boolean _notEquals = (!Objects.equal(_fullyQualifiedName, "null"));
-          if (_notEquals) {
+          Entity _superType = e.getSuperType();
+          boolean _tripleNotEquals = (_superType != null);
+          if (_tripleNotEquals) {
             String _name = e.getSuperType().getName();
             _builder.append(_name);
             _builder.append(" <|-- ");
@@ -1459,14 +1459,14 @@ public class DjangoFilesGenerator extends AbstractGenerator {
           EList<Feature> _features = e.getFeatures();
           for(final Feature f : _features) {
             {
-              String _string = f.getType().toString();
-              boolean _equals = Objects.equal(_string, "Entity");
-              if (_equals) {
-                String _name_2 = e.getName();
-                _builder.append(_name_2);
+              String _name_2 = f.getType().getName();
+              boolean _notEquals = (!Objects.equal(_name_2, "String"));
+              if (_notEquals) {
+                String _name_3 = e.getName();
+                _builder.append(_name_3);
                 _builder.append(" --> ");
-                QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(f.getType());
-                _builder.append(_fullyQualifiedName_1);
+                String _name_4 = f.getType().getName();
+                _builder.append(_name_4);
                 _builder.newLineIfNotEmpty();
               }
             }
@@ -1474,7 +1474,7 @@ public class DjangoFilesGenerator extends AbstractGenerator {
         }
       }
     }
-    _builder.newLine();
+    _builder.append(" ");
     _builder.append("@enduml");
     _builder.newLine();
     return _builder;
