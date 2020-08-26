@@ -1,10 +1,18 @@
 package br.ufes.nemo.ledzeppllin.blackdog.generator;
 
+import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Annotation;
+import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Description;
+import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity;
+import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Feature;
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
 public class HelpersGenerator extends AbstractGenerator {
@@ -13,6 +21,7 @@ public class HelpersGenerator extends AbstractGenerator {
     fsa.generateFile("gitlab.yml", this.createYml(resource));
     fsa.generateFile(".gitignore", this.createGitignore(resource));
     fsa.generateFile("requirements.txt", this.createRequirements(resource));
+    fsa.generateFile("README.md", this.createReadMe(resource));
   }
   
   private CharSequence createYml(final Resource resource) {
@@ -423,6 +432,68 @@ public class HelpersGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("wrapt==1.12.1");
     _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence createReadMe(final Resource resource) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("# BlackDog");
+    _builder.newLine();
+    _builder.append("Sistema de consulta em projetos.");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("## Goal");
+    _builder.newLine();
+    _builder.append("- ");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("## Enviroment");
+    _builder.newLine();
+    _builder.append("- ");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("## Usage");
+    _builder.newLine();
+    _builder.append("-");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    {
+      Iterable<Entity> _filter = Iterables.<Entity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Entity.class);
+      for(final Entity e : _filter) {
+        EList<Annotation> _annotations = e.getAnnotations();
+        _builder.append(_annotations);
+        _builder.newLineIfNotEmpty();
+        Description _description = e.getDescription();
+        _builder.append(_description);
+        _builder.newLineIfNotEmpty();
+        String _name = e.getName();
+        _builder.append(_name);
+        {
+          Entity _superType = e.getSuperType();
+          boolean _tripleNotEquals = (_superType != null);
+          if (_tripleNotEquals) {
+            _builder.append("(");
+            String _name_1 = e.getSuperType().getName();
+            _builder.append(_name_1);
+            _builder.append(")");
+          } else {
+            _builder.append("(models.Model)");
+          }
+        }
+        _builder.append(":");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<Feature> _features = e.getFeatures();
+          for(final Feature f : _features) {
+            _builder.append("            ");
+            String _lowerCase = f.getName().toLowerCase();
+            _builder.append(_lowerCase, "            ");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
     return _builder;
   }
 }

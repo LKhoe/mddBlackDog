@@ -4,6 +4,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import br.ufes.nemo.ledzeppllin.blackdog.blackDog.Entity
 
 class HelpersGenerator extends AbstractGenerator {
 	
@@ -17,6 +18,9 @@ class HelpersGenerator extends AbstractGenerator {
 
         //Gera o requirements
         fsa.generateFile("requirements.txt", resource.createRequirements)
+        
+        //Gera o README
+        fsa.generateFile("README.md", resource.createReadMe)
 		
 	}
 	
@@ -236,6 +240,31 @@ class HelpersGenerator extends AbstractGenerator {
         whitenoise==5.2.0
         wrapt==1.12.1
     '''
+    
+//------------ README.md ---------- 
+	private def createReadMe(Resource resource)'''
+		# BlackDog
+		Sistema de consulta em projetos.
+		
+		## Goal
+		- 
+		
+		## Enviroment
+		- 
+		
+		## Usage
+		-
+		
+		
+		«FOR e : resource.allContents.toIterable.filter(Entity)» 
+			«e.annotations»
+			«e.description»
+			«e.name»«IF e.superType !== null»(«e.superType.name»)«ELSE»(models.Model)«ENDIF»:
+			            «FOR f : e.features»
+			                «f.name.toLowerCase»
+			            «ENDFOR»
+		«ENDFOR»
+	'''
 }
 	
 	
