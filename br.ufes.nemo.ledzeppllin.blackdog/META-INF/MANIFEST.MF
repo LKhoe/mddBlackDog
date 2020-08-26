@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: br.ufes.nemo.ledzeppllin.blackdog
+Bundle-ManifestVersion: 2
+Bundle-Name: br.ufes.nemo.ledzeppllin.blackdog
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: br.ufes.nemo.ledzeppllin.blackdog; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: br.ufes.nemo.ledzeppllin.blackdog.blackDog.util,
+ br.ufes.nemo.ledzeppllin.blackdog.parser.antlr,
+ br.ufes.nemo.ledzeppllin.blackdog.serializer,
+ br.ufes.nemo.ledzeppllin.blackdog.parser.antlr.internal,
+ br.ufes.nemo.ledzeppllin.blackdog.validation,
+ br.ufes.nemo.ledzeppllin.blackdog.generator,
+ br.ufes.nemo.ledzeppllin.blackdog,
+ br.ufes.nemo.ledzeppllin.blackdog.services,
+ br.ufes.nemo.ledzeppllin.blackdog.blackDog,
+ br.ufes.nemo.ledzeppllin.blackdog.scoping,
+ br.ufes.nemo.ledzeppllin.blackdog.blackDog.impl
+Import-Package: org.apache.log4j

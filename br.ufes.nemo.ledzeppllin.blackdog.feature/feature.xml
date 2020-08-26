@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="br.ufes.nemo.ledzeppllin.blackdog.feature"
+	label="BlackDog Feature "
+	version="1.0.0.qualifier">
+	<plugin
+			id="br.ufes.nemo.ledzeppllin.blackdog"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="br.ufes.nemo.ledzeppllin.blackdog.ide"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="br.ufes.nemo.ledzeppllin.blackdog.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>

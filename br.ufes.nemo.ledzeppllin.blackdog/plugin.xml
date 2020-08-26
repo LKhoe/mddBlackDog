@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.ufes.br/nemo/ledzeppllin/blackdog/BlackDog"
+			class = "br.ufes.nemo.ledzeppllin.blackdog.blackDog.BlackDogPackage"
+			genModel = "model/generated/BlackDog.genmodel" />
+	</extension>
+</plugin>

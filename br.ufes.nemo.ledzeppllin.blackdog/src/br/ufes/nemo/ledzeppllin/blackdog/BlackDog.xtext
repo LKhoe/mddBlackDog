@@ -1,0 +1,30 @@
+grammar br.ufes.nemo.ledzeppllin.blackdog.BlackDog with org.eclipse.xtext.common.Terminals
+
+generate blackDog "http://www.ufes.br/nemo/ledzeppllin/blackdog/BlackDog"
+
+Domainmodel:
+    (elements+=Type)*;
+
+Type:
+    DataType | Entity;
+
+DataType:
+    'datatype' name=ID;
+
+Entity:
+    (annotations+=Annotation)*
+    'entity' name=ID ('extends' superType=[Entity])? '{'
+        (features+=Feature)*
+    '}';
+
+Feature:
+    (many?='many')? name=ID ':' type=[Type];
+
+Annotation:
+    '@' name=Views;
+    
+Views:
+    'None' | 'Create' | 'List' | 'Update' | 'Delete';
+
+
+
