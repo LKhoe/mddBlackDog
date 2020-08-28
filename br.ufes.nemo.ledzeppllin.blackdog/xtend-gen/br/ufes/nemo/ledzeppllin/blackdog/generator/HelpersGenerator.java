@@ -12,7 +12,6 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
@@ -466,9 +465,14 @@ public class HelpersGenerator extends AbstractGenerator {
           EList<Annotation> _annotations = e.getAnnotations();
           boolean _tripleNotEquals = (_annotations != null);
           if (_tripleNotEquals) {
-            String _join = IterableExtensions.join(e.getAnnotations());
-            _builder.append(_join);
-            _builder.newLineIfNotEmpty();
+            {
+              EList<Annotation> _annotations_1 = e.getAnnotations();
+              for(final Annotation a : _annotations_1) {
+                String _name = a.getName();
+                _builder.append(_name);
+                _builder.newLineIfNotEmpty();
+              }
+            }
           }
         }
         {
@@ -480,15 +484,15 @@ public class HelpersGenerator extends AbstractGenerator {
             _builder.newLineIfNotEmpty();
           }
         }
-        String _name = e.getName();
-        _builder.append(_name);
+        String _name_1 = e.getName();
+        _builder.append(_name_1);
         {
           Entity _superType = e.getSuperType();
           boolean _tripleNotEquals_2 = (_superType != null);
           if (_tripleNotEquals_2) {
             _builder.append("(");
-            String _name_1 = e.getSuperType().getName();
-            _builder.append(_name_1);
+            String _name_2 = e.getSuperType().getName();
+            _builder.append(_name_2);
             _builder.append(")");
           } else {
             _builder.append("(models.Model)");

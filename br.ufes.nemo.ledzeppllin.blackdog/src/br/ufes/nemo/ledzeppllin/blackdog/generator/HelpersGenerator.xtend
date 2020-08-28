@@ -258,7 +258,9 @@ class HelpersGenerator extends AbstractGenerator {
 		
 		«FOR e : resource.allContents.toIterable.filter(Entity)» 
 			«IF e.annotations !== null»
-				«e.annotations.join»
+				«FOR a : e.annotations»
+					«a.name»
+				«ENDFOR»
 			«ENDIF»
 			«IF e.description !== null»
 				   «e.description.textfield»
