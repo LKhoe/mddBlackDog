@@ -244,25 +244,30 @@ class HelpersGenerator extends AbstractGenerator {
 //------------ README.md ---------- 
 	private def createReadMe(Resource resource)'''
 		# BlackDog
-		Sistema de consulta em projetos.
+		Website de consulta em projetos .
 		
 		## Goal
-		- 
+		- Este sistema tem por objetivo criação, atualização, consulta e deleção de dados relacionados a projetos.
 		
 		## Enviroment
-		- 
+		- A aplicação foi construida para funcionar no servidor Pyhtonanywhere
 		
 		## Usage
-		-
+		- Acesse o link http://koee.pythonanywhere.com/
 		
 		
 		«FOR e : resource.allContents.toIterable.filter(Entity)» 
-			«e.annotations»
-			«e.description»
+			«IF e.annotations !== null»
+				«e.annotations.join»
+			«ENDIF»
+			«IF e.description !== null»
+				   «e.description.textfield»
+			«ENDIF»
 			«e.name»«IF e.superType !== null»(«e.superType.name»)«ELSE»(models.Model)«ENDIF»:
-			            «FOR f : e.features»
-			                «f.name.toLowerCase»
-			            «ENDFOR»
+			    «FOR f : e.features»
+			       «f.name.toLowerCase»
+	            «ENDFOR»
+			            
 		«ENDFOR»
 	'''
 }

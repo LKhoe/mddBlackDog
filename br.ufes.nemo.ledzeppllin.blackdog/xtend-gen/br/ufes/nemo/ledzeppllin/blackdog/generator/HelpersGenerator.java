@@ -12,6 +12,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
@@ -439,40 +440,52 @@ public class HelpersGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("# BlackDog");
     _builder.newLine();
-    _builder.append("Sistema de consulta em projetos.");
+    _builder.append("Website de consulta em projetos .");
     _builder.newLine();
     _builder.newLine();
     _builder.append("## Goal");
     _builder.newLine();
-    _builder.append("- ");
+    _builder.append("- Este sistema tem por objetivo criação, atualização, consulta e deleção de dados relacionados a projetos.");
     _builder.newLine();
     _builder.newLine();
     _builder.append("## Enviroment");
     _builder.newLine();
-    _builder.append("- ");
+    _builder.append("- A aplicação foi construida para funcionar no servidor Pyhtonanywhere");
     _builder.newLine();
     _builder.newLine();
     _builder.append("## Usage");
     _builder.newLine();
-    _builder.append("-");
+    _builder.append("- Acesse o link http://koee.pythonanywhere.com/");
     _builder.newLine();
     _builder.newLine();
     _builder.newLine();
     {
       Iterable<Entity> _filter = Iterables.<Entity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Entity.class);
       for(final Entity e : _filter) {
-        EList<Annotation> _annotations = e.getAnnotations();
-        _builder.append(_annotations);
-        _builder.newLineIfNotEmpty();
-        Description _description = e.getDescription();
-        _builder.append(_description);
-        _builder.newLineIfNotEmpty();
+        {
+          EList<Annotation> _annotations = e.getAnnotations();
+          boolean _tripleNotEquals = (_annotations != null);
+          if (_tripleNotEquals) {
+            String _join = IterableExtensions.join(e.getAnnotations());
+            _builder.append(_join);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          Description _description = e.getDescription();
+          boolean _tripleNotEquals_1 = (_description != null);
+          if (_tripleNotEquals_1) {
+            String _textfield = e.getDescription().getTextfield();
+            _builder.append(_textfield);
+            _builder.newLineIfNotEmpty();
+          }
+        }
         String _name = e.getName();
         _builder.append(_name);
         {
           Entity _superType = e.getSuperType();
-          boolean _tripleNotEquals = (_superType != null);
-          if (_tripleNotEquals) {
+          boolean _tripleNotEquals_2 = (_superType != null);
+          if (_tripleNotEquals_2) {
             _builder.append("(");
             String _name_1 = e.getSuperType().getName();
             _builder.append(_name_1);
@@ -486,12 +499,14 @@ public class HelpersGenerator extends AbstractGenerator {
         {
           EList<Feature> _features = e.getFeatures();
           for(final Feature f : _features) {
-            _builder.append("            ");
+            _builder.append("    ");
             String _lowerCase = f.getName().toLowerCase();
-            _builder.append(_lowerCase, "            ");
+            _builder.append(_lowerCase, "    ");
             _builder.newLineIfNotEmpty();
           }
         }
+        _builder.append("            ");
+        _builder.newLine();
       }
     }
     return _builder;
